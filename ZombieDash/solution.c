@@ -6,6 +6,7 @@
 #include <util/delay.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <avr/interrupt.h>
 
 #include "graphics.h"
 #include "byte.h"
@@ -13,15 +14,6 @@
 #include "cpu_speed.h"
 
 #include "my_functions.h"
-
-// Global Variables
-int LEFT = 0;
-int RIGHT = 0;
-int screen_x = 84;
-int screen_y = 48;
-int charWidth = 8;
-int charHeight = 8;
-	
 
 int main() {
 	
@@ -32,13 +24,13 @@ int main() {
 	
 	byte bitmap1[] = {
 		UINT( 00000111, 11100000 ),
-		UINT( 00011000, 00011000 ),
-		UINT( 00100000, 00000100 ),
-		UINT( 00100000, 00000100 ),
-		UINT( 01001100, 00110010 ),
-		UINT( 01001100, 00110010 ),
-		UINT( 01000000, 00000010 ),
-		UINT( 01000001, 10000010 ),
+		UINT( 00000000, 00000000 ),
+		UINT( 00000000, 00000000 ),
+		UINT( 00000000, 00000000 ),
+		UINT( 00001100, 00110000 ),
+		UINT( 00001100, 00110000 ),
+		UINT( 00000000, 00000000 ),
+		UINT( 00000001, 10000000 ),
 		UINT( 01000001, 10000010 ),
 		UINT( 01000001, 10000010 ),
 		UINT( 00100000, 00000100 ),
@@ -68,44 +60,6 @@ int main() {
 		UINT( 00000111, 11100000 ),
 	};
 	
-		byte bitmap3[] = {
-		UINT( 00000111, 11100000 ),
-		UINT( 00011000, 00011000 ),
-		UINT( 00100000, 00000100 ),
-		UINT( 00100000, 00000100 ),
-		UINT( 01001100, 00110010 ),
-		UINT( 01001100, 00110010 ),
-		UINT( 01000000, 00000010 ),
-		UINT( 01000001, 10000010 ),
-		UINT( 01000001, 10000010 ),
-		UINT( 01000001, 10000010 ),
-		UINT( 00100000, 00000100 ),
-		UINT( 00100011, 11000100 ),
-		UINT( 00010100, 00101000 ),
-		UINT( 00010000, 00001000 ),
-		UINT( 00011000, 00011000 ),
-		UINT( 00000111, 11100000 ),
-	};
-	
-		byte bitmap4[] = {
-		UINT( 00000111, 11100000 ),
-		UINT( 00011000, 00011000 ),
-		UINT( 00100000, 00000100 ),
-		UINT( 00100000, 00000100 ),
-		UINT( 01001100, 00110010 ),
-		UINT( 01001100, 00110010 ),
-		UINT( 01000000, 00000010 ),
-		UINT( 01000001, 10000010 ),
-		UINT( 01000001, 10000010 ),
-		UINT( 01000001, 10000010 ),
-		UINT( 00100000, 00000100 ),
-		UINT( 00100000, 00000100 ),
-		UINT( 00010011, 11001000 ),
-		UINT( 00010100, 00101000 ),
-		UINT( 00011000, 00011000 ),
-		UINT( 00000111, 11100000 ),
-	};
-	
 	byte *bitmaptemp;
 	byte *bitmapa;
 	byte *bitmapb;
@@ -121,7 +75,7 @@ int main() {
 	draw_sprite(&my_sprite);
 	
 	Sprite my_sprite2;
-	init_sprite(&my_sprite2, x + 2*width, y, width, height, bitmap3);
+	init_sprite(&my_sprite2, x + 2*width, y, width, height, bitmap2);
 	draw_sprite(&my_sprite2);
 	refresh();
 	
@@ -149,14 +103,21 @@ int main() {
 	refresh();
 	*/
 	int add = 1;
+	int notPressed = 1;
 	while(1){
 	my_sprite.y += add;
 	my_sprite2.y -= add;
 	if (my_sprite.y < 1) add = -add;
 	if (my_sprite.y > screen_y) add = -add;
-	buttonCheck();
+	
 	clear();
-	if (RIGHT == 1 && LEFT == 1) {
+	
+	if (RIGHT == 0 || LEFT == 0) {
+		notPressed = 1;
+	}
+	
+	if (RIGHT == 1 && LEFT == 1 && notPressed) {
+	notPressed = 0;
 	bitmapa = my_sprite.bitmap;
 	bitmapb = my_sprite2.bitmap;
 	bitmaptemp = bitmapa;
@@ -197,65 +158,6 @@ void playGame() {
 	clear();
 	
 }
-	
-void buttonCheck() {
-
-	if(PINB & 0b00000010) {
-	_delay_ms(50);
-	if(PINB & 0b00000010) {
-		// Send output to PORTD.
-		PORTB |= (1<<3); //PORTB = 0b11111111;
-		RIGHT = 1;
-	}
-	}
-	
-	if (PINB & 0b00000001 ) {
-	_delay_ms(50);
-	if (PINB & 0b00000001 ) {
-		PORTB |= (1<<2);
-		LEFT = 1;
-	}
-	}
-	//(fooo & foo) == fooo)
-	
-	if ((~PINB & (1<<1)) == (1<<1)) {
-		PORTB &= ~((1<<3));
-		RIGHT = 0;
-	}
-	
-	if ((~PINB & (1)) == (1) ) {
-		PORTB &= ~((1<<2));
-		LEFT = 0;
-	}
-	
-}
-
-/**
-* Random number generation:
-* - 'seedWithButtonPress()': seeds the random number generator with an
-* iterated count while waiting for a button press
-* - 'randInRange()': uses the random number generator (assumes it has
-* been seeded) to produce a random number between
-* 'min' (inclusive') and 'max' (not inclusive)
-*/
-void seedWithButtonPress() {
-// turn on teensy LED
-PORTD |= 0b01000000;
-// Configure port B for the buttons....
-DDRB |= 0b00001100;
-// Wait for the button press on SW0 while iterating the seed
-unsigned int seed = 0;
-while (!((PINB >> PB0) & 1)) {
-buttonCheck();
-seed++;
-}
-// Seed the random number generator
-srand(seed);
-// What does dgbI do? where is it from?
-// dbgI((int) seed, 10);
-// turn off teensy LED
-PORTD = 0b00000000;
-}
 
 void setupGame() {
 
@@ -278,6 +180,8 @@ void setupGame() {
 	LCDInitialise(LCD_DEFAULT_CONTRAST);
 	clear();
 	
+	PinChangeInit();
+	
 	clear();
 	draw_string("ZombieDash v1.0", 4,0); // 15*5 = 75 (84 - 75)/2 = 4
 	draw_string("Lachlan Robinson", 2,9); // 16*5 = 80 (84 - 80)/2 = 2
@@ -285,28 +189,136 @@ void setupGame() {
 	refresh();
 	
 	while ((LEFT == 0) & (RIGHT == 0)) {
-		buttonCheck();
+		//buttonCheck();
 	}
+	buttonCheck();
 	CountDown();
 	
 }
 
 void CountDown() {
+	for (char i= 0x3; i>0x0; i--) {
 		clear();
 		draw_string("Game Start In: ", 2,22); // 15*5 = 75 (84 - 75)/2 = 4
-		draw_string("3", 75,22);
+		draw_character((0x30 + i), 75,22);
 		refresh();
 		_delay_ms(1000);
-		clear();
-		draw_string("Game Start In: ", 2,22); // 15*5 = 75 (84 - 75)/2 = 4
-		draw_string("2", 75,22);
-		refresh();
-		_delay_ms(1000);
-		clear();
-		draw_string("Game Start In: ", 2,22); // 15*5 = 75 (84 - 75)/2 = 4
-		draw_string("1", 75,22);
-		refresh();
-		_delay_ms(1000);
-		clear();
+	}
 }
 
+void buttonCheck() {
+
+	RIGHT = 0; LEFT = 0;
+	
+	if(PINB & 0b00000010) {
+	_delay_ms(50);
+	if(PINB & 0b00000010) {
+		// Send output to PORTD.
+		//PORTB |= (1<<3); //PORTB = 0b11111111;
+		RIGHT = 1;
+	}
+	}
+	
+	if (PINB & 0b00000001 ) {
+	_delay_ms(50);
+	if (PINB & 0b00000001 ) {
+		//PORTB |= (1<<2);
+		LEFT = 1;
+	}
+	}
+	//(fooo & foo) == fooo)
+	/*
+	if ((~PINB & (1<<1)) == (1<<1)) {
+		PORTB &= ~((1<<3));
+		RIGHT = 0;
+	}
+	
+	if ((~PINB & (1)) == (1) ) {
+		PORTB &= ~((1<<2));
+		LEFT = 0;
+	}
+	*/
+}
+
+int randInRange(int min, int max) {
+	int out = min + rand()%(max+1 - min);
+	return out;
+}
+
+void seedWithButtonPress() {
+// turn on teensy LED
+PORTD |= 0b01000000;
+// Configure port B for the buttons....
+DDRB |= 0b00001100;
+// Wait for the button press on SW0 while iterating the seed
+unsigned int seed = 0;
+while (!((PINB >> PB0) & 1)) {
+buttonCheck();
+seed++;
+}
+// Seed the random number generator
+srand(seed);
+// What does dgbI do? where is it from?
+// dbgI((int) seed, 10);
+// turn off teensy LED
+PORTD = 0b00000000;
+}
+
+void PinChangeInit(void)
+{
+	//Enable PCINT0 and PCINT1 (both buttons) in the PCMSK0 register
+	PCMSK0 |= (1<<PCINT0);
+	PCMSK0 |= (1<<PCINT1);
+
+	//Enable Pin change interrupts in the Pin Change Interrupt Control Register
+	PCICR |= (1<<PCIE0);
+	
+	//Set the PCINT0 and PCINT1 interrupts to trigger on rising edge
+	EICRA |= ((1<<ISC00)&&(1<<ISC01)&&(1<<ISC10)&&(1<<ISC11));
+		
+	//Ensure to enable global interrupts as well.
+	sei();
+}
+
+ISR(PCINT0_vect)
+{	
+	RIGHT = 0; LEFT = 0;
+	
+	if(PINB & 0b00000010) {
+	//_delay_ms(50);
+	//if(PINB & 0b00000010) {
+		// Send output to PORTD.
+		//PORTB |= (1<<3); //PORTB = 0b11111111;
+		RIGHT = 1;
+	//}
+	}
+	
+	if (PINB & 0b00000001 ) {
+	//_delay_ms(50);
+	//if (PINB & 0b00000001 ) {
+		//PORTB |= (1<<2);
+		LEFT = 1;
+	//}
+	}
+	/*
+	buttonPressed=0;
+	if ((PINB>>PINB0)&1){
+		buttonPressed = 1;
+	}
+	if ((PINB>>PINB1)&1){
+		if (buttonPressed){
+			buttonPressed = 3;
+		} else {
+			buttonPressed = 2;
+		}
+	}
+	if (buttonPressed==1){
+		heroX = heroX-3;
+	} else if (buttonPressed==2){
+		heroX = heroX+3;
+	}
+	clear();
+	draw_character('*',heroX,heroY);
+	refresh();
+	*/
+}
