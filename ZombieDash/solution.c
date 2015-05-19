@@ -6,6 +6,7 @@
 #include <util/delay.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <avr/interrupt.h>
 
 #include "graphics.h"
@@ -14,6 +15,9 @@
 #include "cpu_speed.h"
 
 #include "my_functions.h"
+
+#define NUM_BLOCKS 10
+#define MAX_CLOCK_COUNTER_FOR_100MSECOND 3
 
 int main() {
 	
@@ -188,9 +192,7 @@ void setupGame() {
 	draw_string("n8845409", 22, 28); // 8*5 = 40 (84 - 40)/2 = 22
 	refresh();
 	
-	while ((LEFT == 0) & (RIGHT == 0)) {
-		//buttonCheck();
-	}
+	seedWithButtonPress();
 	buttonCheck();
 	CountDown();
 	
@@ -252,8 +254,7 @@ PORTD |= 0b01000000;
 DDRB |= 0b00001100;
 // Wait for the button press on SW0 while iterating the seed
 unsigned int seed = 0;
-while (!((PINB >> PB0) & 1)) {
-buttonCheck();
+while (!RIGHT) {
 seed++;
 }
 // Seed the random number generator
@@ -322,3 +323,51 @@ ISR(PCINT0_vect)
 	refresh();
 	*/
 }
+
+void TimerInit(void)
+{
+	//Set to Normal Timer Mode using TCCR0A and TCCR0B
+	TCCR0A &= ~((1<<WGM01)|(WGM00));
+	TCCR0B &= ~((1<<WGM02));
+	
+	//Set Prescaler using TCCR0B, using Clock Speed find timer speed = 1/(Clock Speed/Prescaler)
+	//Prescaler = 1024
+	//Timer Speed = 128 nano seconds
+	//Timer Overflow Speed = 32640 nano seconds (Timer Speed * 255) - (255 since 8-bit timer)
+	TCCR0B |= (1<<CS02)|(1<<CS00);
+	TCCR0B &= ~((1<<CS01));
+	
+	//Enable TOIE0 interrupt in the TIMSK0 register
+	TIMSK0 |= (1<<TOIE0);
+	
+	//Ensure to enable global interrupts as well.
+	sei();
+}
+
+ISR(TIMER0_OVF_vect)
+{
+	//Clear the flag by writing a one
+	TIFR0 |= (1<<TOV0);
+	//Add one to our clockCounter
+	/*clockCounter++;
+	//DEBUG LED
+	PORTB ^= (1<<PINB2);
+	//Check to see if our clockCounter is greater/equal to than our MAX_CLOCK_COUNTER_FOR_100MSECOND
+	if(clockCounter >= MAX_CLOCK_COUNTER_FOR_100MSECOND)
+	{
+		PORTB ^= (1<<PINB3);
+		//Reset clockCounter
+		clockCounter = 0;
+		clear();
+		for (int i=0; i<NUM_BLOCKS; i++){
+			fallingBlocks[i] = fallingBlocks[i]+1;
+			if (fallingBlocks[i]==LCD_Y){
+				fallingBlocks[i] = 0;
+			}
+			draw_character('x',(LCD_X/NUM_BLOCKS)*i+5,fallingBlocks[i]);
+		}
+		refresh();
+	}
+	*/
+}
+
