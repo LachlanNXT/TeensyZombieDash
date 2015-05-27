@@ -21,15 +21,11 @@
 
 int main() {
 	
+	setupGame();
+	
 	// INSERT_CODE_HERE
 	//draw_string("eWWZ begins!",0,0);
-
-	// screen setup etc
-	setupGame();
-	clear();
-	refresh();
 	
-	// sprites
 	byte bitHero [] = {
 		BYTE( 10100000),
 		BYTE( 11100000),
@@ -42,64 +38,26 @@ int main() {
 		BYTE( 11100000),
 	};
 	
-	// screen parameters
-	screen_x -= width;
-	screen_y -= height;
-
-	int middle_x = screen_x/2;
-	int middle_y = screen_y/2 + 5;
-	byte x, y;
-	
-	Sprite zombies[8];
-	for (int i = 0; i<2; i++) {
-		zombie[i] = &zombies[i];
-		x = randInRange(1,middle_x-10);
-		y = randInRange(9, screen_y-1);
-		init_sprite(zombie[i], x , y, width, height, bitZombie);
-	}
-	for (int i = 0; i<2; i++) {
-		zombie[i] = &zombies[i];
-		x = randInRange(middle_x+10,screen_x);
-		y = randInRange(9, screen_y-1);
-		init_sprite(zombie[i+2], x , y, width, height, bitZombie);
-	}
-	for (int i = 0; i<2; i++) {
-		zombie[i] = &zombies[i];
-		x = randInRange(1,screen_x);
-		y = randInRange(9, middle_y-10);
-		init_sprite(zombie[i+4], x , y, width, height, bitZombie);
-	}
-	for (int i = 0; i<2; i++) {
-		zombie[i] = &zombies[i];
-		x = randInRange(1,screen_x);
-		y = randInRange(middle_y+10,screen_y);
-		init_sprite(zombie[i+6], x , y, width, height, bitZombie);
-	}
-
-	
-	/*
-	Sprite test_sprite; zombie = &test_sprite;
-	init_sprite(zombie, x + 2*width, y, width, height, bitZombie);
-	draw_sprite(zombie);
-	*/
-	
-	// Hero sprite parameters
-	x = screen_x/2 - width;
-	y = screen_y/2 + 9/2;
-	
 	Sprite my_sprite;
 	my_pointer = &my_sprite;
-
+	byte width = 3;
+	byte height = 3;
+	screen_x -= width;
+	screen_y -= height;
+	byte x = screen_x/2 - width;
+	byte y = screen_y/2;
 	init_sprite(my_pointer, x, y, width, height, bitHero);
 	draw_sprite(my_pointer);
-	for (int i = 0; i<8; i++) {
-	draw_sprite(zombie[i]);
-	}
+	
+	Sprite my_sprite2;
+	my_pointer2 = &my_sprite2;
+	init_sprite(my_pointer2, x + 2*width, y, width, height, bitZombie);
+	draw_sprite(my_pointer2);
+	refresh();
 	
 	refresh();
 	
 	_delay_ms(100);
-	
 	/*
 	my_sprite.bitmap = bitmap2;
 	draw_sprite(&my_sprite);
@@ -121,8 +79,6 @@ int main() {
 	refresh();
 	*/
 	//int add = 1;
-	
-	// initialise vars
 	int notRIGHT = 1;
 	int notLEFT = 1;
 	GAMEON = 1;
@@ -164,9 +120,7 @@ int main() {
 		}
 		
 		draw_sprite(my_pointer);
-		for (int i = 0; i<8; i++) {
-		draw_sprite(zombie[i]);
-		}
+		draw_sprite(my_pointer2);
 		drawScreen();	
 		refresh();
 	}
@@ -423,30 +377,3 @@ void drawScreen(void) {
 	draw_character((0x30 + Direction),70,0);
 
 }
-
-/*
-void setupZombies(void ) {
-	
-	byte bitZombie [] = {
-		BYTE( 11100000),
-		BYTE( 01000000),
-		BYTE( 11100000),
-	};
-	
-	byte x = screen_x/2 - width;
-	byte y = screen_y/2;
-	
-	Sprite test_sprite; zombie = &test_sprite;
-	init_sprite(zombie, x + 2*width, y, width, height, bitZombie);
-	draw_sprite(zombie);
-	
-	
-	
-	refresh();
-	
-	refresh();
-	
-	_delay_ms(3000);
-
-}
-*/
