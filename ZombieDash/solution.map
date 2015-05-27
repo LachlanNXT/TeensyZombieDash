@@ -299,7 +299,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1e48
+.text           0x00000000     0x1c9a
  *(.vectors)
  .vectors       0x00000000       0xac c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32u4.o
                 0x00000000                __vectors
@@ -397,159 +397,159 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x000002c4                __vector_18
                 0x000002c4                __vector_20
                 0x000002c4                __vector_42
- .text          0x000002c6       0x52 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .text          0x000002c6       0x50 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
                 0x000002c6                __fixunssfsi
- .text          0x00000318      0x1ee c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
-                0x00000318                __mulsf3
- .text          0x00000506      0x152 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
-                0x00000506                __divsf3
- .text          0x00000658       0xa6 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
-                0x00000658                __fixsfsi
- .text          0x000006fe      0x1aa c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
-                0x000006fe                __pack_f
- .text          0x000008a8       0xf0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
-                0x000008a8                __unpack_f
-                0x00000998                . = ALIGN (0x2)
+ .text          0x00000316      0x1ee c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+                0x00000316                __mulsf3
+ .text          0x00000504      0x152 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+                0x00000504                __divsf3
+ .text          0x00000656       0xa6 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+                0x00000656                __fixsfsi
+ .text          0x000006fc      0x1aa c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+                0x000006fc                __pack_f
+ .text          0x000008a6       0xf0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+                0x000008a6                __unpack_f
+                0x00000996                . = ALIGN (0x2)
  *(.text.*)
  .text.buttonCheck
-                0x00000998       0x5e solution.o
-                0x00000998                buttonCheck
+                0x00000996       0x5e solution.o
+                0x00000996                buttonCheck
  .text.PinChangeInit
-                0x000009f6       0x28 solution.o
-                0x000009f6                PinChangeInit
+                0x000009f4       0x28 solution.o
+                0x000009f4                PinChangeInit
  .text.__vector_9
-                0x00000a1e       0x4c solution.o
-                0x00000a1e                __vector_9
+                0x00000a1c       0x4c solution.o
+                0x00000a1c                __vector_9
  .text.TimerInit
-                0x00000a6a       0x26 solution.o
-                0x00000a6a                TimerInit
+                0x00000a68       0x26 solution.o
+                0x00000a68                TimerInit
  .text.heroForward
-                0x00000a90      0x1a8 solution.o
-                0x00000a90                heroForward
+                0x00000a8e      0x1a8 solution.o
+                0x00000a8e                heroForward
  .text.__vector_23
-                0x00000c38       0x7a solution.o
-                0x00000c38                __vector_23
+                0x00000c36       0x7a solution.o
+                0x00000c36                __vector_23
  .text.drawScreen
-                0x00000cb2       0x70 solution.o
-                0x00000cb2                drawScreen
+                0x00000cb0       0x70 solution.o
+                0x00000cb0                drawScreen
  .text.seedWithButtonPress
-                0x00000d22       0x34 solution.o
-                0x00000d22                seedWithButtonPress
+                0x00000d20       0x32 solution.o
+                0x00000d20                seedWithButtonPress
  .text.randInRange
-                0x00000d56       0x30 solution.o
-                0x00000d56                randInRange
+                0x00000d52       0x2e solution.o
+                0x00000d52                randInRange
  .text.CountDown
-                0x00000d86       0x3e solution.o
-                0x00000d86                CountDown
+                0x00000d80       0x3e solution.o
+                0x00000d80                CountDown
  .text.setupGame
-                0x00000dc4       0x4a solution.o
-                0x00000dc4                setupGame
- .text.main     0x00000e0e      0x40a solution.o
-                0x00000e0e                main
+                0x00000dbe       0x4a solution.o
+                0x00000dbe                setupGame
+ .text.main     0x00000e08      0x264 solution.o
+                0x00000e08                main
  .text.avr-libc.fplib
-                0x00001218        0xa c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                0x00001218                __subsf3
-                0x0000121a                __addsf3
+                0x0000106c        0xa c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(addsf3.o)
+                0x0000106c                __subsf3
+                0x0000106e                __addsf3
  .text.avr-libc.fplib
-                0x00001222       0xc0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(addsf3x.o)
-                0x0000123c                __addsf3x
+                0x00001076       0xc0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(addsf3x.o)
+                0x00001090                __addsf3x
  .text.avr-libc.fplib
-                0x000012e2        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
-                0x000012e2                __lesf2
-                0x000012e2                __nesf2
-                0x000012e2                __eqsf2
-                0x000012e2                __cmpsf2
-                0x000012e2                __ltsf2
+                0x00001136        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
+                0x00001136                __lesf2
+                0x00001136                __nesf2
+                0x00001136                __eqsf2
+                0x00001136                __cmpsf2
+                0x00001136                __ltsf2
  .text.avr-libc.fplib
-                0x000012ea       0x7a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                0x000012ee                __floatsisf
-                0x000012ea                __floatunsisf
+                0x0000113e       0x7a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(floatsisf.o)
+                0x00001142                __floatsisf
+                0x0000113e                __floatunsisf
  .text.avr-libc.fplib
-                0x00001364       0x48 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
-                0x00001364                __fp_cmp
+                0x000011b8       0x48 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
+                0x000011b8                __fp_cmp
  .text.avr-libc.fplib
-                0x000013ac        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_inf.o)
-                0x000013ac                __fp_inf
+                0x00001200        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+                0x00001200                __fp_inf
  .text.avr-libc.fplib
-                0x000013b8        0x6 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_nan.o)
-                0x000013b8                __fp_nan
+                0x0000120c        0x6 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+                0x0000120c                __fp_nan
  .text.avr-libc.fplib
-                0x000013be        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
-                0x000013be                __fp_pscA
+                0x00001212        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+                0x00001212                __fp_pscA
  .text.avr-libc.fplib
-                0x000013cc        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
-                0x000013cc                __fp_pscB
+                0x00001220        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+                0x00001220                __fp_pscB
  .text.avr-libc.fplib
-                0x000013da       0x22 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_round.o)
-                0x000013da                __fp_round
+                0x0000122e       0x22 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_round.o)
+                0x0000122e                __fp_round
  .text.avr-libc.fplib
-                0x000013fc       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_split3.o)
-                0x000013fc                __fp_split3
-                0x0000140c                __fp_splitA
+                0x00001250       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+                0x00001250                __fp_split3
+                0x00001260                __fp_splitA
  .text.avr-libc.fplib
-                0x00001440        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_zero.o)
-                0x00001440                __fp_zero
-                0x00001442                __fp_szero
+                0x00001294        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+                0x00001294                __fp_zero
+                0x00001296                __fp_szero
  .text.avr-libc.fplib
-                0x0000144e        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(gesf2.o)
-                0x0000144e                __gtsf2
-                0x0000144e                __gesf2
- .text.clear    0x00001456       0x10 ../teensy_graphics\libteensy_graphics.a(graphics.o)
-                0x00001456                clear
+                0x000012a2        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a(gesf2.o)
+                0x000012a2                __gtsf2
+                0x000012a2                __gesf2
+ .text.clear    0x000012aa       0x10 ../teensy_graphics\libteensy_graphics.a(graphics.o)
+                0x000012aa                clear
  .text.set_pixel
-                0x00001466       0x66 ../teensy_graphics\libteensy_graphics.a(graphics.o)
-                0x00001466                set_pixel
+                0x000012ba       0x66 ../teensy_graphics\libteensy_graphics.a(graphics.o)
+                0x000012ba                set_pixel
  .text.draw_line
-                0x000014cc      0x3ce ../teensy_graphics\libteensy_graphics.a(graphics.o)
-                0x000014cc                draw_line
+                0x00001320      0x3cc ../teensy_graphics\libteensy_graphics.a(graphics.o)
+                0x00001320                draw_line
  .text.draw_character
-                0x0000189a       0xa0 ../teensy_graphics\libteensy_graphics.a(graphics.o)
-                0x0000189a                draw_character
+                0x000016ec       0xa0 ../teensy_graphics\libteensy_graphics.a(graphics.o)
+                0x000016ec                draw_character
  .text.draw_string
-                0x0000193a       0x2a ../teensy_graphics\libteensy_graphics.a(graphics.o)
-                0x0000193a                draw_string
- .text.refresh  0x00001964       0x22 ../teensy_graphics\libteensy_graphics.a(graphics.o)
-                0x00001964                refresh
+                0x0000178c       0x2a ../teensy_graphics\libteensy_graphics.a(graphics.o)
+                0x0000178c                draw_string
+ .text.refresh  0x000017b6       0x22 ../teensy_graphics\libteensy_graphics.a(graphics.o)
+                0x000017b6                refresh
  .text.LCDWrite
-                0x00001986       0x42 ../teensy_graphics\libteensy_graphics.a(lcd.o)
-                0x00001986                LCDWrite
+                0x000017d8       0x42 ../teensy_graphics\libteensy_graphics.a(lcd.o)
+                0x000017d8                LCDWrite
  .text.LCDInitialise
-                0x000019c8       0x50 ../teensy_graphics\libteensy_graphics.a(lcd.o)
-                0x000019c8                LCDInitialise
+                0x0000181a       0x50 ../teensy_graphics\libteensy_graphics.a(lcd.o)
+                0x0000181a                LCDInitialise
  .text.LCDPosition
-                0x00001a18       0x16 ../teensy_graphics\libteensy_graphics.a(lcd.o)
-                0x00001a18                LCDPosition
+                0x0000186a       0x16 ../teensy_graphics\libteensy_graphics.a(lcd.o)
+                0x0000186a                LCDPosition
  .text.init_sprite
-                0x00001a2e       0x60 ../teensy_graphics\libteensy_graphics.a(sprite.o)
-                0x00001a2e                init_sprite
+                0x00001880       0x60 ../teensy_graphics\libteensy_graphics.a(sprite.o)
+                0x00001880                init_sprite
  .text.draw_sprite
-                0x00001a8e      0x194 ../teensy_graphics\libteensy_graphics.a(sprite.o)
-                0x00001a8e                draw_sprite
- .text.libgcc   0x00001c22       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
-                0x00001c22                __divmodhi4
-                0x00001c22                _div
- .text.libgcc   0x00001c48       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x00001c48                __udivmodhi4
- .text.libgcc   0x00001c70       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00001c70                __prologue_saves__
- .text.libgcc   0x00001ca8       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00001ca8                __epilogue_restores__
+                0x000018e0      0x194 ../teensy_graphics\libteensy_graphics.a(sprite.o)
+                0x000018e0                draw_sprite
+ .text.libgcc   0x00001a74       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
+                0x00001a74                __divmodhi4
+                0x00001a74                _div
+ .text.libgcc   0x00001a9a       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00001a9a                __udivmodhi4
+ .text.libgcc   0x00001ac2       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00001ac2                __prologue_saves__
+ .text.libgcc   0x00001afa       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00001afa                __epilogue_restores__
  .text.avr-libc
-                0x00001cde       0xae c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(rand.o)
-                0x00001d6e                rand_r
-                0x00001d70                rand
-                0x00001d76                srand
- .text.libgcc   0x00001d8c       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x00001d8c                __mulsi3
- .text.libgcc   0x00001dca       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
-                0x00001dca                __divmodsi4
- .text.libgcc   0x00001e00       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00001e00                __udivmodsi4
-                0x00001e44                . = ALIGN (0x2)
+                0x00001b30       0xae c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(rand.o)
+                0x00001bc0                rand_r
+                0x00001bc2                rand
+                0x00001bc8                srand
+ .text.libgcc   0x00001bde       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x00001bde                __mulsi3
+ .text.libgcc   0x00001c1c       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                0x00001c1c                __divmodsi4
+ .text.libgcc   0x00001c52       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001c52                __udivmodsi4
+                0x00001c96                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001e44        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00001e44                exit
-                0x00001e44                _exit
+ .fini9         0x00001c96        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00001c96                exit
+                0x00001c96                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -568,11 +568,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001e44        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001c96        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001e48                _etext = .
+                0x00001c9a                _etext = .
 
-.data           0x00800100       0x68 load address 0x00001e48
+.data           0x00800100       0x68 load address 0x00001c9a
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100       0x5c solution.o
@@ -621,8 +621,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  COMMON         0x00800190      0x1f8 ../teensy_graphics\libteensy_graphics.a(graphics.o)
                 0x00800190                screenBuffer
                 0x00800388                PROVIDE (__bss_end, .)
-                0x00001e48                __data_load_start = LOADADDR (.data)
-                0x00001eb0                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001c9a                __data_load_start = LOADADDR (.data)
+                0x00001d02                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800388        0x0
                 0x00800388                PROVIDE (__noinit_start, .)
@@ -729,48 +729,48 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .debug_pubnames
                 0x000003ed       0x21 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
 
-.debug_info     0x00000000     0x2109
+.debug_info     0x00000000     0x2119
  *(.debug_info)
- .debug_info    0x00000000      0x702 solution.o
- .debug_info    0x00000702      0x393 ../teensy_graphics\libteensy_graphics.a(graphics.o)
- .debug_info    0x00000a95      0x1f2 ../teensy_graphics\libteensy_graphics.a(lcd.o)
- .debug_info    0x00000c87      0x244 ../teensy_graphics\libteensy_graphics.a(sprite.o)
- .debug_info    0x00000ecb       0xb1 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .debug_info    0x00000f7c      0x485 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .debug_info    0x00001401      0x3fc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .debug_info    0x000017fd      0x2b0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .debug_info    0x00001aad      0x12c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .debug_info    0x00001bd9      0x2df c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .debug_info    0x00001eb8      0x251 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .debug_info    0x00000000      0x712 solution.o
+ .debug_info    0x00000712      0x393 ../teensy_graphics\libteensy_graphics.a(graphics.o)
+ .debug_info    0x00000aa5      0x1f2 ../teensy_graphics\libteensy_graphics.a(lcd.o)
+ .debug_info    0x00000c97      0x244 ../teensy_graphics\libteensy_graphics.a(sprite.o)
+ .debug_info    0x00000edb       0xb1 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .debug_info    0x00000f8c      0x485 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .debug_info    0x00001411      0x3fc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .debug_info    0x0000180d      0x2b0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .debug_info    0x00001abd      0x12c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .debug_info    0x00001be9      0x2df c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .debug_info    0x00001ec8      0x251 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0xefd
+.debug_abbrev   0x00000000      0xf0c
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x228 solution.o
- .debug_abbrev  0x00000228      0x124 ../teensy_graphics\libteensy_graphics.a(graphics.o)
- .debug_abbrev  0x0000034c       0xe9 ../teensy_graphics\libteensy_graphics.a(lcd.o)
- .debug_abbrev  0x00000435       0xfa ../teensy_graphics\libteensy_graphics.a(sprite.o)
- .debug_abbrev  0x0000052f       0x5d c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .debug_abbrev  0x0000058c      0x21b c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .debug_abbrev  0x000007a7      0x216 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .debug_abbrev  0x000009bd      0x17f c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .debug_abbrev  0x00000b3c       0xad c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .debug_abbrev  0x00000be9      0x1c0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .debug_abbrev  0x00000da9      0x154 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .debug_abbrev  0x00000000      0x237 solution.o
+ .debug_abbrev  0x00000237      0x124 ../teensy_graphics\libteensy_graphics.a(graphics.o)
+ .debug_abbrev  0x0000035b       0xe9 ../teensy_graphics\libteensy_graphics.a(lcd.o)
+ .debug_abbrev  0x00000444       0xfa ../teensy_graphics\libteensy_graphics.a(sprite.o)
+ .debug_abbrev  0x0000053e       0x5d c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .debug_abbrev  0x0000059b      0x21b c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .debug_abbrev  0x000007b6      0x216 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .debug_abbrev  0x000009cc      0x17f c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .debug_abbrev  0x00000b4b       0xad c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .debug_abbrev  0x00000bf8      0x1c0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .debug_abbrev  0x00000db8      0x154 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
 
-.debug_line     0x00000000     0x1772
+.debug_line     0x00000000     0x16d6
  *(.debug_line)
- .debug_line    0x00000000      0x7ca solution.o
- .debug_line    0x000007ca      0x2b6 ../teensy_graphics\libteensy_graphics.a(graphics.o)
- .debug_line    0x00000a80      0x27f ../teensy_graphics\libteensy_graphics.a(lcd.o)
- .debug_line    0x00000cff      0x150 ../teensy_graphics\libteensy_graphics.a(sprite.o)
- .debug_line    0x00000e4f       0xa7 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .debug_line    0x00000ef6      0x239 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .debug_line    0x0000112f      0x1d5 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .debug_line    0x00001304      0x109 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .debug_line    0x0000140d       0x90 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .debug_line    0x0000149d      0x18a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .debug_line    0x00001627      0x14b c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .debug_line    0x00000000      0x72e solution.o
+ .debug_line    0x0000072e      0x2b6 ../teensy_graphics\libteensy_graphics.a(graphics.o)
+ .debug_line    0x000009e4      0x27f ../teensy_graphics\libteensy_graphics.a(lcd.o)
+ .debug_line    0x00000c63      0x150 ../teensy_graphics\libteensy_graphics.a(sprite.o)
+ .debug_line    0x00000db3       0xa7 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .debug_line    0x00000e5a      0x239 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .debug_line    0x00001093      0x1d5 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .debug_line    0x00001268      0x109 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .debug_line    0x00001371       0x90 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .debug_line    0x00001401      0x18a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .debug_line    0x0000158b      0x14b c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
 
 .debug_frame    0x00000000      0x2a0
  *(.debug_frame)
@@ -809,30 +809,30 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .debug_str     0x00000645        0xb c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
                                 0x17f (size before relaxing)
 
-.debug_loc      0x00000000      0xfd2
+.debug_loc      0x00000000     0x102a
  *(.debug_loc)
- .debug_loc     0x00000000      0x188 solution.o
- .debug_loc     0x00000188      0x6fa ../teensy_graphics\libteensy_graphics.a(graphics.o)
- .debug_loc     0x00000882       0xf6 ../teensy_graphics\libteensy_graphics.a(lcd.o)
- .debug_loc     0x00000978      0x1fa ../teensy_graphics\libteensy_graphics.a(sprite.o)
- .debug_loc     0x00000b72       0x34 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .debug_loc     0x00000ba6      0x104 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .debug_loc     0x00000caa       0xc0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .debug_loc     0x00000d6a       0x7e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .debug_loc     0x00000de8      0x13e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .debug_loc     0x00000f26       0xac c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .debug_loc     0x00000000      0x1e0 solution.o
+ .debug_loc     0x000001e0      0x6fa ../teensy_graphics\libteensy_graphics.a(graphics.o)
+ .debug_loc     0x000008da       0xf6 ../teensy_graphics\libteensy_graphics.a(lcd.o)
+ .debug_loc     0x000009d0      0x1fa ../teensy_graphics\libteensy_graphics.a(sprite.o)
+ .debug_loc     0x00000bca       0x34 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .debug_loc     0x00000bfe      0x104 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .debug_loc     0x00000d02       0xc0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .debug_loc     0x00000dc2       0x7e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .debug_loc     0x00000e40      0x13e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .debug_loc     0x00000f7e       0xac c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
 
 .debug_macinfo
  *(.debug_macinfo)
 OUTPUT(solution.elf elf32-avr)
 LOAD linker stubs
 
-.debug_ranges   0x00000000      0x1d8
- .debug_ranges  0x00000000       0xb8 solution.o
- .debug_ranges  0x000000b8       0x58 ../teensy_graphics\libteensy_graphics.a(graphics.o)
- .debug_ranges  0x00000110       0x58 ../teensy_graphics\libteensy_graphics.a(lcd.o)
- .debug_ranges  0x00000168       0x20 ../teensy_graphics\libteensy_graphics.a(sprite.o)
- .debug_ranges  0x00000188       0x50 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+.debug_ranges   0x00000000      0x220
+ .debug_ranges  0x00000000      0x100 solution.o
+ .debug_ranges  0x00000100       0x58 ../teensy_graphics\libteensy_graphics.a(graphics.o)
+ .debug_ranges  0x00000158       0x58 ../teensy_graphics\libteensy_graphics.a(lcd.o)
+ .debug_ranges  0x000001b0       0x20 ../teensy_graphics\libteensy_graphics.a(sprite.o)
+ .debug_ranges  0x000001d0       0x50 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
 
 Cross Reference Table
 

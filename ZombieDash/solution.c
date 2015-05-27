@@ -50,7 +50,21 @@ int main() {
 	int middle_y = screen_y/2 + 5;
 	byte x, y;
 	
-	Sprite zombies[8];
+	// test
+	/*for (int i = 0; i<100; i++) {
+		clear();
+		draw_character((0x30 + randInRange(0,9)),middle_x,middle_y);
+		refresh();
+		_delay_ms(500);
+	
+	}*/
+	
+	Sprite zombies[8]; 
+	for (int i = 0; i<8; i++) {
+	zombie[i] = &zombies[i];
+	init_sprite(zombie[i], middle_x + 3*i, middle_y, width, height, bitZombie);
+	}
+	
 	for (int i = 0; i<2; i++) {
 		zombie[i] = &zombies[i];
 		x = randInRange(1,middle_x-10);
@@ -75,6 +89,7 @@ int main() {
 		y = randInRange(middle_y+10,screen_y);
 		init_sprite(zombie[i+6], x , y, width, height, bitZombie);
 	}
+	*/
 
 	
 	/*
@@ -90,7 +105,7 @@ int main() {
 	Sprite my_sprite;
 	my_pointer = &my_sprite;
 
-	init_sprite(my_pointer, x, y, width, height, bitHero);
+	init_sprite(my_pointer, middle_x, middle_y, width, height, bitHero);
 	draw_sprite(my_pointer);
 	for (int i = 0; i<8; i++) {
 	draw_sprite(zombie[i]);

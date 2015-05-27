@@ -24,10 +24,10 @@
   32 0014 84EF      		ldi r24,lo8(500)
   33 0016 91E0      		ldi r25,hi8(500)
   34               	.LVL0:
-  35               	.LBB37:
-  36               	.LBB38:
-  37               	.LBB39:
-  38               	.LBB40:
+  35               	.LBB41:
+  36               	.LBB42:
+  37               	.LBB43:
+  38               	.LBB44:
   39               	.LSM3:
   40 0018 20E9      		ldi r18,lo8(400)
   41 001a 31E0      		ldi r19,hi8(400)
@@ -40,14 +40,14 @@
   48 0020 01F4      		brne 1b
   49               	 ;  0 "" 2
   50               	/* #NOAPP */
-  51               	.LBE40:
-  52               	.LBE39:
+  51               	.LBE44:
+  52               	.LBE43:
   53               	.LSM4:
   54 0022 0197      		sbiw r24,1
   55               	.LSM5:
   56 0024 01F4      		brne .L3
-  57               	.LBE38:
-  58               	.LBE37:
+  57               	.LBE42:
+  58               	.LBE41:
   59               	.LSM6:
   60 0026 199B      		sbis 35-32,1
   61 0028 00C0      		rjmp .L2
@@ -65,10 +65,10 @@
   73 003a 84EF      		ldi r24,lo8(500)
   74 003c 91E0      		ldi r25,hi8(500)
   75               	.LVL4:
-  76               	.LBB41:
-  77               	.LBB42:
-  78               	.LBB43:
-  79               	.LBB44:
+  76               	.LBB45:
+  77               	.LBB46:
+  78               	.LBB47:
+  79               	.LBB48:
   80               	.LSM9:
   81 003e 20E9      		ldi r18,lo8(400)
   82 0040 31E0      		ldi r19,hi8(400)
@@ -81,14 +81,14 @@
   89 0046 01F4      		brne 1b
   90               	 ;  0 "" 2
   91               	/* #NOAPP */
-  92               	.LBE44:
-  93               	.LBE43:
+  92               	.LBE48:
+  93               	.LBE47:
   94               	.LSM10:
   95 0048 0197      		sbiw r24,1
   96               	.LSM11:
   97 004a 01F4      		brne .L5
-  98               	.LBE42:
-  99               	.LBE41:
+  98               	.LBE46:
+  99               	.LBE45:
  100               	.LSM12:
  101 004c 189B      		sbis 35-32,0
  102 004e 00C0      		rjmp .L6
@@ -133,7 +133,7 @@
  143 0022 8083      		st Z,r24
  144               	.LSM19:
  145               	/* #APP */
- 146               	 ;  294 "solution.c" 1
+ 146               	 ;  311 "solution.c" 1
  147 0024 7894      		sei
  148               	 ;  0 "" 2
  149               	/* epilogue start */
@@ -219,7 +219,7 @@
  233 0020 8083      		st Z,r24
  234               	.LSM34:
  235               	/* #APP */
- 236               	 ;  356 "solution.c" 1
+ 236               	 ;  373 "solution.c" 1
  237 0022 7894      		sei
  238               	 ;  0 "" 2
  239               	/* epilogue start */
@@ -661,20 +661,20 @@
  684               	/* frame size = 0 */
  685               	.LSM90:
  686 0006 13E3      		ldi r17,lo8(51)
- 687               	.LBB45:
- 688               	.LBB46:
- 689               	.LBB47:
- 690               	.LBB48:
- 691               	.LBB49:
+ 687               	.LBB49:
+ 688               	.LBB50:
+ 689               	.LBB51:
+ 690               	.LBB52:
+ 691               	.LBB53:
  692               	.LSM91:
  693 0008 C0E9      		ldi r28,lo8(400)
  694 000a D1E0      		ldi r29,hi8(400)
  695               	.LVL14:
  696               	.L45:
- 697               	.LBE49:
- 698               	.LBE48:
- 699               	.LBE47:
- 700               	.LBE46:
+ 697               	.LBE53:
+ 698               	.LBE52:
+ 699               	.LBE51:
+ 700               	.LBE50:
  701               	.LSM92:
  702 000c 0E94 0000 		call clear
  703               	.LVL15:
@@ -695,10 +695,10 @@
  718 002c 97E2      		ldi r25,hi8(10000)
  719               	.LVL16:
  720               	.L44:
- 721               	.LBB53:
- 722               	.LBB52:
- 723               	.LBB51:
- 724               	.LBB50:
+ 721               	.LBB57:
+ 722               	.LBB56:
+ 723               	.LBB55:
+ 724               	.LBB54:
  725               	.LSM96:
  726 002e FE01      		movw r30,r28
  727               	.LVL17:
@@ -708,20 +708,20 @@
  731 0032 01F4      		brne 1b
  732               	 ;  0 "" 2
  733               	/* #NOAPP */
- 734               	.LBE50:
- 735               	.LBE51:
+ 734               	.LBE54:
+ 735               	.LBE55:
  736               	.LSM97:
  737 0034 0197      		sbiw r24,1
  738               	.LSM98:
  739 0036 01F4      		brne .L44
  740 0038 1150      		subi r17,lo8(-(-1))
- 741               	.LBE52:
- 742               	.LBE53:
+ 741               	.LBE56:
+ 742               	.LBE57:
  743               	.LSM99:
  744 003a 1033      		cpi r17,lo8(48)
  745 003c 01F4      		brne .L45
  746               	/* epilogue start */
- 747               	.LBE45:
+ 747               	.LBE49:
  748               	.LSM100:
  749 003e DF91      		pop r29
  750 0040 CF91      		pop r28
@@ -814,662 +814,531 @@
  832               	main:
  833               	.LFB7:
  834               	.LSM120:
- 835 0000 2F92      		push r2
- 836 0002 3F92      		push r3
- 837 0004 4F92      		push r4
- 838 0006 5F92      		push r5
- 839 0008 6F92      		push r6
- 840 000a 7F92      		push r7
- 841 000c 8F92      		push r8
- 842 000e 9F92      		push r9
- 843 0010 AF92      		push r10
- 844 0012 BF92      		push r11
- 845 0014 CF92      		push r12
- 846 0016 DF92      		push r13
- 847 0018 EF92      		push r14
- 848 001a FF92      		push r15
- 849 001c 0F93      		push r16
- 850 001e 1F93      		push r17
- 851 0020 DF93      		push r29
- 852 0022 CF93      		push r28
- 853 0024 CDB7      		in r28,__SP_L__
- 854 0026 DEB7      		in r29,__SP_H__
- 855 0028 C35C      		subi r28,lo8(-(-195))
- 856 002a D040      		sbci r29,hi8(-(-195))
- 857 002c 0FB6      		in __tmp_reg__,__SREG__
- 858 002e F894      		cli
- 859 0030 DEBF      		out __SP_H__,r29
- 860 0032 0FBE      		out __SREG__,__tmp_reg__
- 861 0034 CDBF      		out __SP_L__,r28
- 862               	/* prologue: function */
- 863               	/* frame size = 195 */
- 864               	.LSM121:
- 865 0036 0E94 0000 		call setupGame
- 866               	.LSM122:
- 867 003a 0E94 0000 		call clear
- 868               	.LSM123:
- 869 003e 0E94 0000 		call refresh
- 870               	.LSM124:
- 871 0042 DE01      		movw r26,r28
- 872 0044 1196      		adiw r26,1
- 873 0046 E0E0      		ldi r30,lo8(C.0.1759)
- 874 0048 F0E0      		ldi r31,hi8(C.0.1759)
- 875 004a 83E0      		ldi r24,lo8(3)
- 876               	.L52:
- 877 004c 0190      		ld r0,Z+
- 878 004e 0D92      		st X+,r0
- 879 0050 8150      		subi r24,lo8(-(-1))
- 880 0052 01F4      		brne .L52
- 881               	.LSM125:
- 882 0054 DE01      		movw r26,r28
- 883 0056 1496      		adiw r26,4
- 884 0058 E0E0      		ldi r30,lo8(C.1.1760)
- 885 005a F0E0      		ldi r31,hi8(C.1.1760)
- 886 005c 83E0      		ldi r24,lo8(3)
- 887               	.L53:
- 888 005e 0190      		ld r0,Z+
- 889 0060 0D92      		st X+,r0
- 890 0062 8150      		subi r24,lo8(-(-1))
- 891 0064 01F4      		brne .L53
- 892               	.LSM126:
- 893 0066 E091 0000 		lds r30,width
- 894 006a F0E0      		ldi r31,lo8(0)
- 895 006c 8091 0000 		lds r24,screen_x
- 896 0070 9091 0000 		lds r25,(screen_x)+1
- 897 0074 8E1B      		sub r24,r30
- 898 0076 9F0B      		sbc r25,r31
- 899 0078 9093 0000 		sts (screen_x)+1,r25
- 900 007c 8093 0000 		sts screen_x,r24
- 901               	.LSM127:
- 902 0080 4091 0000 		lds r20,height
- 903 0084 2091 0000 		lds r18,screen_y
- 904 0088 3091 0000 		lds r19,(screen_y)+1
- 905 008c 241B      		sub r18,r20
- 906 008e 3109      		sbc r19,__zero_reg__
- 907 0090 3093 0000 		sts (screen_y)+1,r19
- 908 0094 2093 0000 		sts screen_y,r18
- 909               	.LSM128:
- 910 0098 62E0      		ldi r22,lo8(2)
- 911 009a 70E0      		ldi r23,hi8(2)
- 912 009c 0E94 0000 		call __divmodhi4
- 913 00a0 6B01      		movw r12,r22
- 914               	.LVL18:
- 915 00a2 CE1A      		sub r12,r30
- 916 00a4 DF0A      		sbc r13,r31
- 917               	.LSM129:
- 918 00a6 C901      		movw r24,r18
- 919 00a8 62E0      		ldi r22,lo8(2)
- 920 00aa 70E0      		ldi r23,hi8(2)
- 921 00ac 0E94 0000 		call __divmodhi4
- 922 00b0 1B01      		movw r2,r22
- 923               	.LBB54:
- 924               	.LSM130:
- 925 00b2 FCE1      		ldi r31,lo8(28)
- 926 00b4 4F2E      		mov r4,r31
- 927 00b6 512C      		mov r5,__zero_reg__
- 928 00b8 4C0E      		add r4,r28
- 929 00ba 5D1E      		adc r5,r29
- 930 00bc 5092 0000 		sts (zombie)+1,r5
- 931 00c0 4092 0000 		sts zombie,r4
- 932               	.LSM131:
- 933 00c4 E6EF      		ldi r30,lo8(-10)
- 934 00c6 8E2E      		mov r8,r30
- 935 00c8 EFEF      		ldi r30,hi8(-10)
- 936 00ca 9E2E      		mov r9,r30
- 937 00cc 8C0C      		add r8,r12
- 938 00ce 9D1C      		adc r9,r13
- 939 00d0 81E0      		ldi r24,lo8(1)
- 940 00d2 90E0      		ldi r25,hi8(1)
- 941 00d4 B401      		movw r22,r8
- 942 00d6 0E94 0000 		call randInRange
- 943 00da 182F      		mov r17,r24
- 944               	.LSM132:
- 945 00dc 6091 0000 		lds r22,screen_y
- 946 00e0 7091 0000 		lds r23,(screen_y)+1
- 947 00e4 6150      		subi r22,lo8(-(-1))
- 948 00e6 7040      		sbci r23,hi8(-(-1))
- 949 00e8 89E0      		ldi r24,lo8(9)
- 950 00ea 90E0      		ldi r25,hi8(9)
- 951 00ec 0E94 0000 		call randInRange
- 952 00f0 482F      		mov r20,r24
- 953               	.LSM133:
- 954 00f2 74E0      		ldi r23,lo8(4)
- 955 00f4 A72E      		mov r10,r23
- 956 00f6 B12C      		mov r11,__zero_reg__
- 957 00f8 AC0E      		add r10,r28
- 958 00fa BD1E      		adc r11,r29
- 959 00fc 8091 0000 		lds r24,zombie
- 960 0100 9091 0000 		lds r25,(zombie)+1
- 961 0104 612F      		mov r22,r17
- 962 0106 2091 0000 		lds r18,width
- 963 010a 0091 0000 		lds r16,height
- 964 010e 7501      		movw r14,r10
- 965 0110 0E94 0000 		call init_sprite
- 966               	.LSM134:
- 967 0114 61E3      		ldi r22,lo8(49)
- 968 0116 662E      		mov r6,r22
- 969 0118 712C      		mov r7,__zero_reg__
- 970 011a 6C0E      		add r6,r28
- 971 011c 7D1E      		adc r7,r29
- 972 011e 7092 0000 		sts (zombie+2)+1,r7
- 973 0122 6092 0000 		sts zombie+2,r6
- 974               	.LSM135:
- 975 0126 81E0      		ldi r24,lo8(1)
- 976 0128 90E0      		ldi r25,hi8(1)
- 977 012a B401      		movw r22,r8
- 978 012c 0E94 0000 		call randInRange
- 979 0130 182F      		mov r17,r24
- 980               	.LSM136:
- 981 0132 6091 0000 		lds r22,screen_y
- 982 0136 7091 0000 		lds r23,(screen_y)+1
- 983 013a 6150      		subi r22,lo8(-(-1))
- 984 013c 7040      		sbci r23,hi8(-(-1))
- 985 013e 89E0      		ldi r24,lo8(9)
- 986 0140 90E0      		ldi r25,hi8(9)
- 987 0142 0E94 0000 		call randInRange
- 988 0146 482F      		mov r20,r24
- 989               	.LSM137:
- 990 0148 8091 0000 		lds r24,zombie+2
- 991 014c 9091 0000 		lds r25,(zombie+2)+1
- 992 0150 612F      		mov r22,r17
- 993 0152 2091 0000 		lds r18,width
- 994 0156 0091 0000 		lds r16,height
- 995 015a 0E94 0000 		call init_sprite
- 996               	.LBE54:
- 997               	.LBB55:
- 998               	.LSM138:
- 999 015e 5092 0000 		sts (zombie)+1,r5
- 1000 0162 4092 0000 		sts zombie,r4
- 1001               	.LSM139:
- 1002 0166 8AE0      		ldi r24,lo8(10)
- 1003 0168 90E0      		ldi r25,hi8(10)
- 1004 016a C80E      		add r12,r24
- 1005 016c D91E      		adc r13,r25
- 1006               	.LVL19:
- 1007 016e 6091 0000 		lds r22,screen_x
- 1008 0172 7091 0000 		lds r23,(screen_x)+1
- 1009 0176 C601      		movw r24,r12
- 1010 0178 0E94 0000 		call randInRange
- 1011 017c 182F      		mov r17,r24
+ 835 0000 6F92      		push r6
+ 836 0002 7F92      		push r7
+ 837 0004 8F92      		push r8
+ 838 0006 9F92      		push r9
+ 839 0008 AF92      		push r10
+ 840 000a BF92      		push r11
+ 841 000c CF92      		push r12
+ 842 000e DF92      		push r13
+ 843 0010 EF92      		push r14
+ 844 0012 FF92      		push r15
+ 845 0014 0F93      		push r16
+ 846 0016 1F93      		push r17
+ 847 0018 DF93      		push r29
+ 848 001a CF93      		push r28
+ 849 001c CDB7      		in r28,__SP_L__
+ 850 001e DEB7      		in r29,__SP_H__
+ 851 0020 C35C      		subi r28,lo8(-(-195))
+ 852 0022 D040      		sbci r29,hi8(-(-195))
+ 853 0024 0FB6      		in __tmp_reg__,__SREG__
+ 854 0026 F894      		cli
+ 855 0028 DEBF      		out __SP_H__,r29
+ 856 002a 0FBE      		out __SREG__,__tmp_reg__
+ 857 002c CDBF      		out __SP_L__,r28
+ 858               	/* prologue: function */
+ 859               	/* frame size = 195 */
+ 860               	.LSM121:
+ 861 002e 0E94 0000 		call setupGame
+ 862               	.LSM122:
+ 863 0032 0E94 0000 		call clear
+ 864               	.LSM123:
+ 865 0036 0E94 0000 		call refresh
+ 866               	.LSM124:
+ 867 003a DE01      		movw r26,r28
+ 868 003c 1196      		adiw r26,1
+ 869 003e E0E0      		ldi r30,lo8(C.0.1751)
+ 870 0040 F0E0      		ldi r31,hi8(C.0.1751)
+ 871 0042 83E0      		ldi r24,lo8(3)
+ 872               	.L52:
+ 873 0044 0190      		ld r0,Z+
+ 874 0046 0D92      		st X+,r0
+ 875 0048 8150      		subi r24,lo8(-(-1))
+ 876 004a 01F4      		brne .L52
+ 877               	.LSM125:
+ 878 004c DE01      		movw r26,r28
+ 879 004e 1496      		adiw r26,4
+ 880 0050 E0E0      		ldi r30,lo8(C.1.1752)
+ 881 0052 F0E0      		ldi r31,hi8(C.1.1752)
+ 882 0054 83E0      		ldi r24,lo8(3)
+ 883               	.L53:
+ 884 0056 0190      		ld r0,Z+
+ 885 0058 0D92      		st X+,r0
+ 886 005a 8150      		subi r24,lo8(-(-1))
+ 887 005c 01F4      		brne .L53
+ 888               	.LSM126:
+ 889 005e 2091 0000 		lds r18,width
+ 890 0062 8091 0000 		lds r24,screen_x
+ 891 0066 9091 0000 		lds r25,(screen_x)+1
+ 892 006a 821B      		sub r24,r18
+ 893 006c 9109      		sbc r25,__zero_reg__
+ 894 006e 9093 0000 		sts (screen_x)+1,r25
+ 895 0072 8093 0000 		sts screen_x,r24
+ 896               	.LSM127:
+ 897 0076 4091 0000 		lds r20,height
+ 898 007a 2091 0000 		lds r18,screen_y
+ 899 007e 3091 0000 		lds r19,(screen_y)+1
+ 900 0082 241B      		sub r18,r20
+ 901 0084 3109      		sbc r19,__zero_reg__
+ 902 0086 3093 0000 		sts (screen_y)+1,r19
+ 903 008a 2093 0000 		sts screen_y,r18
+ 904               	.LSM128:
+ 905 008e 62E0      		ldi r22,lo8(2)
+ 906 0090 70E0      		ldi r23,hi8(2)
+ 907 0092 0E94 0000 		call __divmodhi4
+ 908 0096 962E      		mov r9,r22
+ 909               	.LVL18:
+ 910               	.LSM129:
+ 911 0098 C901      		movw r24,r18
+ 912 009a 62E0      		ldi r22,lo8(2)
+ 913 009c 70E0      		ldi r23,hi8(2)
+ 914 009e 0E94 0000 		call __divmodhi4
+ 915 00a2 8B01      		movw r16,r22
+ 916               	.LVL19:
+ 917 00a4 0B5F      		subi r16,lo8(-(5))
+ 918 00a6 1F4F      		sbci r17,hi8(-(5))
+ 919 00a8 EE24      		clr r14
+ 920 00aa FF24      		clr r15
+ 921               	.LVL20:
+ 922               	.LBB58:
+ 923               	.LBB59:
+ 924               	.LBB60:
+ 925               	.LBB61:
+ 926               	.LBB62:
+ 927               	.LSM130:
+ 928 00ac E0E9      		ldi r30,lo8(400)
+ 929 00ae CE2E      		mov r12,r30
+ 930 00b0 E1E0      		ldi r30,hi8(400)
+ 931 00b2 DE2E      		mov r13,r30
+ 932               	.LVL21:
+ 933               	.L55:
+ 934               	.LBE62:
+ 935               	.LBE61:
+ 936               	.LBE60:
+ 937               	.LBE59:
+ 938               	.LSM131:
+ 939 00b4 0E94 0000 		call clear
+ 940               	.LVL22:
+ 941               	.LSM132:
+ 942 00b8 80E0      		ldi r24,lo8(0)
+ 943 00ba 90E0      		ldi r25,hi8(0)
+ 944 00bc 69E0      		ldi r22,lo8(9)
+ 945 00be 70E0      		ldi r23,hi8(9)
+ 946 00c0 0E94 0000 		call randInRange
+ 947 00c4 805D      		subi r24,lo8(-(48))
+ 948 00c6 692D      		mov r22,r9
+ 949 00c8 402F      		mov r20,r16
+ 950 00ca 0E94 0000 		call draw_character
+ 951               	.LSM133:
+ 952 00ce 0E94 0000 		call refresh
+ 953 00d2 88E8      		ldi r24,lo8(5000)
+ 954 00d4 93E1      		ldi r25,hi8(5000)
+ 955               	.LVL23:
+ 956               	.L54:
+ 957               	.LBB66:
+ 958               	.LBB65:
+ 959               	.LBB64:
+ 960               	.LBB63:
+ 961               	.LSM134:
+ 962 00d6 F601      		movw r30,r12
+ 963               	.LVL24:
+ 964               	/* #APP */
+ 965               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 966 00d8 3197      		1: sbiw r30,1
+ 967 00da 01F4      		brne 1b
+ 968               	 ;  0 "" 2
+ 969               	/* #NOAPP */
+ 970               	.LBE63:
+ 971               	.LBE64:
+ 972               	.LSM135:
+ 973 00dc 0197      		sbiw r24,1
+ 974               	.LSM136:
+ 975 00de 01F4      		brne .L54
+ 976               	.LBE65:
+ 977               	.LBE66:
+ 978               	.LSM137:
+ 979 00e0 0894      		sec
+ 980 00e2 E11C      		adc r14,__zero_reg__
+ 981 00e4 F11C      		adc r15,__zero_reg__
+ 982 00e6 84E6      		ldi r24,lo8(100)
+ 983 00e8 E816      		cp r14,r24
+ 984 00ea F104      		cpc r15,__zero_reg__
+ 985               	.LVL25:
+ 986 00ec 01F4      		brne .L55
+ 987 00ee 802E      		mov r8,r16
+ 988 00f0 7CE1      		ldi r23,lo8(28)
+ 989 00f2 C72E      		mov r12,r23
+ 990 00f4 D12C      		mov r13,__zero_reg__
+ 991 00f6 CC0E      		add r12,r28
+ 992 00f8 DD1E      		adc r13,r29
+ 993 00fa 60E0      		ldi r22,lo8(zombie)
+ 994 00fc A62E      		mov r10,r22
+ 995 00fe 60E0      		ldi r22,hi8(zombie)
+ 996 0100 B62E      		mov r11,r22
+ 997 0102 192D      		mov r17,r9
+ 998               	.LBE58:
+ 999               	.LBB67:
+ 1000               	.LSM138:
+ 1001 0104 54E0      		ldi r21,lo8(4)
+ 1002 0106 652E      		mov r6,r21
+ 1003 0108 712C      		mov r7,__zero_reg__
+ 1004 010a 6C0E      		add r6,r28
+ 1005 010c 7D1E      		adc r7,r29
+ 1006               	.L56:
+ 1007               	.LSM139:
+ 1008 010e F501      		movw r30,r10
+ 1009               	.LVL26:
+ 1010 0110 C082      		st Z,r12
+ 1011 0112 D182      		std Z+1,r13
  1012               	.LSM140:
- 1013 017e 6091 0000 		lds r22,screen_y
- 1014 0182 7091 0000 		lds r23,(screen_y)+1
- 1015 0186 6150      		subi r22,lo8(-(-1))
- 1016 0188 7040      		sbci r23,hi8(-(-1))
- 1017 018a 89E0      		ldi r24,lo8(9)
- 1018 018c 90E0      		ldi r25,hi8(9)
- 1019 018e 0E94 0000 		call randInRange
- 1020 0192 482F      		mov r20,r24
- 1021               	.LSM141:
- 1022 0194 8091 0000 		lds r24,zombie+4
- 1023 0198 9091 0000 		lds r25,(zombie+4)+1
- 1024 019c 612F      		mov r22,r17
- 1025 019e 2091 0000 		lds r18,width
- 1026 01a2 0091 0000 		lds r16,height
- 1027 01a6 0E94 0000 		call init_sprite
- 1028               	.LSM142:
- 1029 01aa 7092 0000 		sts (zombie+2)+1,r7
- 1030 01ae 6092 0000 		sts zombie+2,r6
- 1031               	.LSM143:
- 1032 01b2 6091 0000 		lds r22,screen_x
- 1033 01b6 7091 0000 		lds r23,(screen_x)+1
- 1034 01ba C601      		movw r24,r12
- 1035 01bc 0E94 0000 		call randInRange
- 1036 01c0 182F      		mov r17,r24
- 1037               	.LSM144:
- 1038 01c2 6091 0000 		lds r22,screen_y
- 1039 01c6 7091 0000 		lds r23,(screen_y)+1
- 1040 01ca 6150      		subi r22,lo8(-(-1))
- 1041 01cc 7040      		sbci r23,hi8(-(-1))
- 1042 01ce 89E0      		ldi r24,lo8(9)
- 1043 01d0 90E0      		ldi r25,hi8(9)
- 1044 01d2 0E94 0000 		call randInRange
- 1045 01d6 482F      		mov r20,r24
- 1046               	.LSM145:
- 1047 01d8 8091 0000 		lds r24,zombie+6
- 1048 01dc 9091 0000 		lds r25,(zombie+6)+1
- 1049 01e0 612F      		mov r22,r17
- 1050 01e2 2091 0000 		lds r18,width
- 1051 01e6 0091 0000 		lds r16,height
- 1052 01ea 0E94 0000 		call init_sprite
- 1053               	.LBE55:
- 1054               	.LBB56:
- 1055               	.LSM146:
- 1056 01ee 5092 0000 		sts (zombie)+1,r5
- 1057 01f2 4092 0000 		sts zombie,r4
- 1058               	.LSM147:
- 1059 01f6 6091 0000 		lds r22,screen_x
- 1060 01fa 7091 0000 		lds r23,(screen_x)+1
- 1061 01fe 81E0      		ldi r24,lo8(1)
- 1062 0200 90E0      		ldi r25,hi8(1)
- 1063 0202 0E94 0000 		call randInRange
- 1064 0206 182F      		mov r17,r24
- 1065               	.LSM148:
- 1066 0208 5AEF      		ldi r21,lo8(-6)
- 1067 020a C52E      		mov r12,r21
- 1068 020c 5FEF      		ldi r21,hi8(-6)
- 1069 020e D52E      		mov r13,r21
- 1070 0210 C20C      		add r12,r2
- 1071 0212 D31C      		adc r13,r3
- 1072 0214 89E0      		ldi r24,lo8(9)
- 1073 0216 90E0      		ldi r25,hi8(9)
- 1074 0218 B601      		movw r22,r12
- 1075 021a 0E94 0000 		call randInRange
- 1076 021e 482F      		mov r20,r24
- 1077               	.LSM149:
- 1078 0220 8091 0000 		lds r24,zombie+8
- 1079 0224 9091 0000 		lds r25,(zombie+8)+1
- 1080 0228 612F      		mov r22,r17
- 1081 022a 2091 0000 		lds r18,width
- 1082 022e 0091 0000 		lds r16,height
- 1083 0232 0E94 0000 		call init_sprite
- 1084               	.LSM150:
- 1085 0236 7092 0000 		sts (zombie+2)+1,r7
- 1086 023a 6092 0000 		sts zombie+2,r6
- 1087               	.LSM151:
- 1088 023e 6091 0000 		lds r22,screen_x
- 1089 0242 7091 0000 		lds r23,(screen_x)+1
- 1090 0246 81E0      		ldi r24,lo8(1)
- 1091 0248 90E0      		ldi r25,hi8(1)
- 1092 024a 0E94 0000 		call randInRange
- 1093 024e 182F      		mov r17,r24
- 1094               	.LSM152:
- 1095 0250 89E0      		ldi r24,lo8(9)
- 1096 0252 90E0      		ldi r25,hi8(9)
- 1097 0254 B601      		movw r22,r12
- 1098 0256 0E94 0000 		call randInRange
- 1099 025a 482F      		mov r20,r24
- 1100               	.LSM153:
- 1101 025c 8091 0000 		lds r24,zombie+10
- 1102 0260 9091 0000 		lds r25,(zombie+10)+1
- 1103 0264 612F      		mov r22,r17
- 1104 0266 2091 0000 		lds r18,width
- 1105 026a 0091 0000 		lds r16,height
- 1106 026e 0E94 0000 		call init_sprite
- 1107               	.LBE56:
- 1108               	.LBB57:
- 1109               	.LSM154:
- 1110 0272 5092 0000 		sts (zombie)+1,r5
- 1111 0276 4092 0000 		sts zombie,r4
- 1112               	.LSM155:
- 1113 027a 6091 0000 		lds r22,screen_x
- 1114 027e 7091 0000 		lds r23,(screen_x)+1
- 1115 0282 81E0      		ldi r24,lo8(1)
- 1116 0284 90E0      		ldi r25,hi8(1)
- 1117 0286 0E94 0000 		call randInRange
- 1118 028a 182F      		mov r17,r24
- 1119               	.LSM156:
- 1120 028c EEE0      		ldi r30,lo8(14)
- 1121 028e F0E0      		ldi r31,hi8(14)
- 1122 0290 2E0E      		add r2,r30
- 1123 0292 3F1E      		adc r3,r31
- 1124 0294 6091 0000 		lds r22,screen_y
- 1125 0298 7091 0000 		lds r23,(screen_y)+1
- 1126 029c C101      		movw r24,r2
- 1127 029e 0E94 0000 		call randInRange
- 1128 02a2 482F      		mov r20,r24
- 1129               	.LSM157:
- 1130 02a4 8091 0000 		lds r24,zombie+12
- 1131 02a8 9091 0000 		lds r25,(zombie+12)+1
- 1132 02ac 612F      		mov r22,r17
- 1133 02ae 2091 0000 		lds r18,width
- 1134 02b2 0091 0000 		lds r16,height
- 1135 02b6 0E94 0000 		call init_sprite
- 1136               	.LSM158:
- 1137 02ba 7092 0000 		sts (zombie+2)+1,r7
- 1138 02be 6092 0000 		sts zombie+2,r6
- 1139               	.LSM159:
- 1140 02c2 6091 0000 		lds r22,screen_x
- 1141 02c6 7091 0000 		lds r23,(screen_x)+1
- 1142 02ca 81E0      		ldi r24,lo8(1)
- 1143 02cc 90E0      		ldi r25,hi8(1)
- 1144 02ce 0E94 0000 		call randInRange
- 1145 02d2 182F      		mov r17,r24
- 1146               	.LSM160:
- 1147 02d4 6091 0000 		lds r22,screen_y
- 1148 02d8 7091 0000 		lds r23,(screen_y)+1
- 1149 02dc C101      		movw r24,r2
- 1150 02de 0E94 0000 		call randInRange
- 1151 02e2 482F      		mov r20,r24
- 1152               	.LSM161:
- 1153 02e4 8091 0000 		lds r24,zombie+14
- 1154 02e8 9091 0000 		lds r25,(zombie+14)+1
- 1155 02ec 612F      		mov r22,r17
- 1156 02ee 2091 0000 		lds r18,width
- 1157 02f2 0091 0000 		lds r16,height
- 1158 02f6 0E94 0000 		call init_sprite
- 1159               	.LBE57:
- 1160               	.LSM162:
- 1161 02fa 2091 0000 		lds r18,width
- 1162 02fe 8091 0000 		lds r24,screen_x
- 1163 0302 9091 0000 		lds r25,(screen_x)+1
- 1164 0306 62E0      		ldi r22,lo8(2)
- 1165 0308 70E0      		ldi r23,hi8(2)
- 1166 030a 0E94 0000 		call __divmodhi4
- 1167 030e 362F      		mov r19,r22
- 1168 0310 321B      		sub r19,r18
- 1169               	.LSM163:
- 1170 0312 8091 0000 		lds r24,screen_y
- 1171 0316 9091 0000 		lds r25,(screen_y)+1
- 1172 031a 62E0      		ldi r22,lo8(2)
- 1173 031c 70E0      		ldi r23,hi8(2)
- 1174 031e 0E94 0000 		call __divmodhi4
- 1175 0322 462F      		mov r20,r22
- 1176 0324 4C5F      		subi r20,lo8(-(4))
- 1177               	.LSM164:
- 1178 0326 CE01      		movw r24,r28
- 1179 0328 0796      		adiw r24,7
- 1180 032a 9093 0000 		sts (my_pointer)+1,r25
- 1181 032e 8093 0000 		sts my_pointer,r24
- 1182               	.LSM165:
- 1183 0332 632F      		mov r22,r19
- 1184 0334 0091 0000 		lds r16,height
- 1185 0338 7E01      		movw r14,r28
- 1186 033a 0894      		sec
- 1187 033c E11C      		adc r14,__zero_reg__
- 1188 033e F11C      		adc r15,__zero_reg__
- 1189 0340 0E94 0000 		call init_sprite
- 1190               	.LSM166:
- 1191 0344 8091 0000 		lds r24,my_pointer
- 1192 0348 9091 0000 		lds r25,(my_pointer)+1
- 1193 034c 0E94 0000 		call draw_sprite
- 1194 0350 00E0      		ldi r16,lo8(zombie)
- 1195 0352 10E0      		ldi r17,hi8(zombie)
- 1196               	.L54:
- 1197               	.LBB58:
- 1198               	.LSM167:
- 1199 0354 F801      		movw r30,r16
- 1200 0356 8191      		ld r24,Z+
- 1201 0358 9191      		ld r25,Z+
- 1202 035a 8F01      		movw r16,r30
- 1203 035c 0E94 0000 		call draw_sprite
- 1204               	.LSM168:
- 1205 0360 F0E0      		ldi r31,hi8(zombie+16)
- 1206 0362 0030      		cpi r16,lo8(zombie+16)
- 1207 0364 1F07      		cpc r17,r31
- 1208 0366 01F4      		brne .L54
- 1209               	.LBE58:
- 1210               	.LSM169:
- 1211 0368 0E94 0000 		call refresh
- 1212 036c 88EE      		ldi r24,lo8(1000)
- 1213 036e 93E0      		ldi r25,hi8(1000)
- 1214               	.LVL20:
- 1215               	.LBB59:
- 1216               	.LBB60:
- 1217               	.LBB61:
- 1218               	.LBB62:
- 1219               	.LSM170:
- 1220 0370 20E9      		ldi r18,lo8(400)
- 1221 0372 31E0      		ldi r19,hi8(400)
- 1222               	.L55:
- 1223 0374 F901      		movw r30,r18
- 1224               	.LVL21:
- 1225               	/* #APP */
- 1226               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 1227 0376 3197      		1: sbiw r30,1
- 1228 0378 01F4      		brne 1b
- 1229               	 ;  0 "" 2
- 1230               	/* #NOAPP */
- 1231               	.LBE62:
- 1232               	.LBE61:
- 1233               	.LSM171:
- 1234 037a 0197      		sbiw r24,1
- 1235               	.LSM172:
- 1236 037c 01F4      		brne .L55
- 1237               	.LBE60:
- 1238               	.LBE59:
- 1239               	.LSM173:
- 1240 037e 81E0      		ldi r24,lo8(1)
- 1241 0380 90E0      		ldi r25,hi8(1)
- 1242               	.LVL22:
- 1243 0382 9093 0000 		sts (GAMEON)+1,r25
- 1244 0386 8093 0000 		sts GAMEON,r24
- 1245 038a 41E0      		ldi r20,lo8(1)
- 1246 038c E42E      		mov r14,r20
- 1247 038e F12C      		mov r15,__zero_reg__
- 1248               	.LVL23:
- 1249 0390 31E0      		ldi r19,lo8(1)
- 1250 0392 C32E      		mov r12,r19
- 1251 0394 D12C      		mov r13,__zero_reg__
- 1252               	.LVL24:
- 1253               	.LSM174:
- 1254 0396 23E0      		ldi r18,lo8(3)
- 1255 0398 A22E      		mov r10,r18
- 1256 039a B12C      		mov r11,__zero_reg__
- 1257               	.L62:
- 1258               	.LSM175:
- 1259 039c 0E94 0000 		call clear
- 1260               	.LVL25:
- 1261               	.LSM176:
- 1262 03a0 8091 0000 		lds r24,RIGHT
- 1263 03a4 9091 0000 		lds r25,(RIGHT)+1
- 1264 03a8 892B      		or r24,r25
- 1265 03aa 01F4      		brne .L56
- 1266 03ac 91E0      		ldi r25,lo8(1)
- 1267 03ae E92E      		mov r14,r25
- 1268 03b0 F12C      		mov r15,__zero_reg__
- 1269               	.L56:
- 1270               	.LSM177:
- 1271 03b2 8091 0000 		lds r24,LEFT
- 1272 03b6 9091 0000 		lds r25,(LEFT)+1
- 1273 03ba 892B      		or r24,r25
- 1274 03bc 01F4      		brne .L57
- 1275 03be 81E0      		ldi r24,lo8(1)
- 1276 03c0 C82E      		mov r12,r24
- 1277 03c2 D12C      		mov r13,__zero_reg__
- 1278               	.L57:
- 1279               	.LSM178:
- 1280 03c4 8091 0000 		lds r24,RIGHT
- 1281 03c8 9091 0000 		lds r25,(RIGHT)+1
- 1282 03cc 892B      		or r24,r25
- 1283 03ce 01F0      		breq .L58
- 1284 03d0 E114      		cp r14,__zero_reg__
- 1285 03d2 F104      		cpc r15,__zero_reg__
- 1286 03d4 01F0      		breq .L58
- 1287               	.LSM179:
- 1288 03d6 8091 0000 		lds r24,Direction
- 1289 03da 9091 0000 		lds r25,(Direction)+1
- 1290 03de 0197      		sbiw r24,1
- 1291 03e0 9093 0000 		sts (Direction)+1,r25
- 1292 03e4 8093 0000 		sts Direction,r24
- 1293               	.LSM180:
- 1294 03e8 8091 0000 		lds r24,Direction
- 1295 03ec 9091 0000 		lds r25,(Direction)+1
- 1296 03f0 97FF      		sbrs r25,7
- 1297 03f2 00C0      		rjmp .L69
- 1298               	.L59:
- 1299               	.LSM181:
- 1300 03f4 B092 0000 		sts (Direction)+1,r11
- 1301 03f8 A092 0000 		sts Direction,r10
- 1302               	.L69:
- 1303 03fc EE24      		clr r14
- 1304 03fe FF24      		clr r15
- 1305               	.L58:
- 1306               	.LSM182:
- 1307 0400 8091 0000 		lds r24,LEFT
- 1308 0404 9091 0000 		lds r25,(LEFT)+1
- 1309 0408 8C21      		and r24,r12
- 1310 040a 9D21      		and r25,r13
- 1311 040c 892B      		or r24,r25
- 1312 040e 01F0      		breq .L60
- 1313               	.LSM183:
- 1314 0410 8091 0000 		lds r24,Direction
- 1315 0414 9091 0000 		lds r25,(Direction)+1
- 1316 0418 0196      		adiw r24,1
- 1317 041a 64E0      		ldi r22,lo8(4)
- 1318 041c 70E0      		ldi r23,hi8(4)
- 1319 041e 0E94 0000 		call __divmodhi4
- 1320 0422 9093 0000 		sts (Direction)+1,r25
- 1321 0426 8093 0000 		sts Direction,r24
- 1322 042a CC24      		clr r12
- 1323 042c DD24      		clr r13
- 1324               	.L60:
- 1325               	.LSM184:
- 1326 042e 8091 0000 		lds r24,my_pointer
- 1327 0432 9091 0000 		lds r25,(my_pointer)+1
- 1328 0436 0E94 0000 		call draw_sprite
- 1329 043a 00E0      		ldi r16,lo8(zombie)
- 1330 043c 10E0      		ldi r17,hi8(zombie)
- 1331               	.L61:
- 1332               	.LBB63:
- 1333               	.LSM185:
- 1334 043e F801      		movw r30,r16
- 1335 0440 8191      		ld r24,Z+
- 1336 0442 9191      		ld r25,Z+
- 1337 0444 8F01      		movw r16,r30
- 1338 0446 0E94 0000 		call draw_sprite
- 1339               	.LSM186:
- 1340 044a F0E0      		ldi r31,hi8(zombie+16)
- 1341 044c 0030      		cpi r16,lo8(zombie+16)
- 1342 044e 1F07      		cpc r17,r31
- 1343 0450 01F4      		brne .L61
- 1344               	.LBE63:
- 1345               	.LSM187:
- 1346 0452 0E94 0000 		call drawScreen
- 1347               	.LSM188:
- 1348 0456 0E94 0000 		call refresh
- 1349 045a 00C0      		rjmp .L62
- 1350               	.LFE7:
- 1352               	.global	LEFT
- 1353               	.global	LEFT
- 1354               		.section .bss
- 1357               	LEFT:
- 1358 0000 0000      		.skip 2,0
- 1359               	.global	RIGHT
- 1360               	.global	RIGHT
- 1363               	RIGHT:
- 1364 0002 0000      		.skip 2,0
- 1365               	.global	screen_x
- 1366               		.data
- 1369               	screen_x:
- 1370 0042 5300      		.word	83
- 1371               	.global	screen_x_Full
- 1374               	screen_x_Full:
- 1375 0044 5300      		.word	83
- 1376               	.global	screen_y
- 1379               	screen_y:
- 1380 0046 2F00      		.word	47
- 1381               	.global	screen_y_Full
- 1384               	screen_y_Full:
- 1385 0048 2F00      		.word	47
- 1386               	.global	charWidth
- 1389               	charWidth:
- 1390 004a 0800      		.word	8
- 1391               	.global	charHeight
- 1394               	charHeight:
- 1395 004c 0800      		.word	8
- 1396               	.global	previousLEFT
- 1397               	.global	previousLEFT
- 1398               		.section .bss
- 1401               	previousLEFT:
- 1402 0004 0000      		.skip 2,0
- 1403               	.global	previousRIGHT
- 1404               	.global	previousRIGHT
- 1407               	previousRIGHT:
- 1408 0006 0000      		.skip 2,0
- 1409               	.global	buttonPressed
- 1410               	.global	buttonPressed
- 1413               	buttonPressed:
- 1414 0008 0000      		.skip 2,0
- 1415               	.global	previousButton
- 1416               	.global	previousButton
- 1419               	previousButton:
- 1420 000a 0000      		.skip 2,0
- 1421               	.global	Direction
- 1422               		.data
- 1425               	Direction:
- 1426 004e 0100      		.word	1
- 1427               	.global	clockCounter
- 1428               	.global	clockCounter
- 1429               		.section .bss
- 1432               	clockCounter:
- 1433 000c 0000      		.skip 2,0
- 1434               	.global	GAMEON
- 1435               	.global	GAMEON
- 1438               	GAMEON:
- 1439 000e 0000      		.skip 2,0
- 1440               	.global	HeroX
- 1441               		.data
- 1444               	HeroX:
- 1445 0050 0100      		.word	1
- 1446               	.global	HeroY
- 1447               	.global	HeroY
- 1448               		.section .bss
- 1451               	HeroY:
- 1452 0010 0000      		.skip 2,0
- 1453               	.global	width
- 1454               		.data
- 1457               	width:
- 1458 0052 03        		.byte	3
- 1459               	.global	height
- 1462               	height:
- 1463 0053 03        		.byte	3
- 1464               	.global	Lives
- 1467               	Lives:
- 1468 0054 0300      		.word	3
- 1469               	.global	Score
- 1470               	.global	Score
- 1471               		.section .bss
- 1474               	Score:
- 1475 0012 0000      		.skip 2,0
- 1476               		.data
- 1479               	C.1.1760:
- 1480 0056 E0        		.byte	-32
- 1481 0057 40        		.byte	64
- 1482 0058 E0        		.byte	-32
- 1485               	C.0.1759:
- 1486 0059 A0        		.byte	-96
- 1487 005a E0        		.byte	-32
- 1488 005b A0        		.byte	-96
- 1489               		.comm my_pointer,2,1
- 1490               		.comm my_pointer2,2,1
- 1491               		.comm zombie,16,1
- 1604               	.Letext0:
+ 1013 0114 C601      		movw r24,r12
+ 1014 0116 612F      		mov r22,r17
+ 1015 0118 482D      		mov r20,r8
+ 1016 011a 2091 0000 		lds r18,width
+ 1017 011e 0091 0000 		lds r16,height
+ 1018               	.LVL27:
+ 1019 0122 7301      		movw r14,r6
+ 1020               	.LVL28:
+ 1021 0124 0E94 0000 		call init_sprite
+ 1022 0128 82E0      		ldi r24,lo8(2)
+ 1023 012a 90E0      		ldi r25,hi8(2)
+ 1024 012c A80E      		add r10,r24
+ 1025 012e B91E      		adc r11,r25
+ 1026 0130 E5E1      		ldi r30,lo8(21)
+ 1027 0132 F0E0      		ldi r31,hi8(21)
+ 1028 0134 CE0E      		add r12,r30
+ 1029 0136 DF1E      		adc r13,r31
+ 1030 0138 1D5F      		subi r17,lo8(-(3))
+ 1031               	.LSM141:
+ 1032 013a F0E0      		ldi r31,lo8(zombie+16)
+ 1033 013c AF16      		cp r10,r31
+ 1034 013e F0E0      		ldi r31,hi8(zombie+16)
+ 1035 0140 BF06      		cpc r11,r31
+ 1036 0142 01F4      		brne .L56
+ 1037               	.LBE67:
+ 1038               	.LSM142:
+ 1039 0144 CE01      		movw r24,r28
+ 1040 0146 0796      		adiw r24,7
+ 1041 0148 9093 0000 		sts (my_pointer)+1,r25
+ 1042 014c 8093 0000 		sts my_pointer,r24
+ 1043               	.LSM143:
+ 1044 0150 692D      		mov r22,r9
+ 1045 0152 482D      		mov r20,r8
+ 1046 0154 2091 0000 		lds r18,width
+ 1047 0158 0091 0000 		lds r16,height
+ 1048 015c 7E01      		movw r14,r28
+ 1049 015e 0894      		sec
+ 1050 0160 E11C      		adc r14,__zero_reg__
+ 1051 0162 F11C      		adc r15,__zero_reg__
+ 1052 0164 0E94 0000 		call init_sprite
+ 1053               	.LSM144:
+ 1054 0168 8091 0000 		lds r24,my_pointer
+ 1055 016c 9091 0000 		lds r25,(my_pointer)+1
+ 1056 0170 0E94 0000 		call draw_sprite
+ 1057 0174 40EF      		ldi r20,lo8(-16)
+ 1058 0176 E42E      		mov r14,r20
+ 1059 0178 4FEF      		ldi r20,hi8(-16)
+ 1060 017a F42E      		mov r15,r20
+ 1061 017c EA0C      		add r14,r10
+ 1062 017e FB1C      		adc r15,r11
+ 1063               	.L57:
+ 1064               	.LBB68:
+ 1065               	.LSM145:
+ 1066 0180 F701      		movw r30,r14
+ 1067 0182 8191      		ld r24,Z+
+ 1068 0184 9191      		ld r25,Z+
+ 1069 0186 7F01      		movw r14,r30
+ 1070 0188 0E94 0000 		call draw_sprite
+ 1071               	.LSM146:
+ 1072 018c F0E0      		ldi r31,lo8(zombie+16)
+ 1073 018e EF16      		cp r14,r31
+ 1074 0190 F0E0      		ldi r31,hi8(zombie+16)
+ 1075 0192 FF06      		cpc r15,r31
+ 1076 0194 01F4      		brne .L57
+ 1077               	.LBE68:
+ 1078               	.LSM147:
+ 1079 0196 0E94 0000 		call refresh
+ 1080 019a 88EE      		ldi r24,lo8(1000)
+ 1081 019c 93E0      		ldi r25,hi8(1000)
+ 1082               	.LVL29:
+ 1083               	.LBB69:
+ 1084               	.LBB70:
+ 1085               	.LBB71:
+ 1086               	.LBB72:
+ 1087               	.LSM148:
+ 1088 019e 20E9      		ldi r18,lo8(400)
+ 1089 01a0 31E0      		ldi r19,hi8(400)
+ 1090               	.L58:
+ 1091 01a2 F901      		movw r30,r18
+ 1092               	.LVL30:
+ 1093               	/* #APP */
+ 1094               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1095 01a4 3197      		1: sbiw r30,1
+ 1096 01a6 01F4      		brne 1b
+ 1097               	 ;  0 "" 2
+ 1098               	/* #NOAPP */
+ 1099               	.LBE72:
+ 1100               	.LBE71:
+ 1101               	.LSM149:
+ 1102 01a8 0197      		sbiw r24,1
+ 1103               	.LSM150:
+ 1104 01aa 01F4      		brne .L58
+ 1105               	.LBE70:
+ 1106               	.LBE69:
+ 1107               	.LSM151:
+ 1108 01ac 81E0      		ldi r24,lo8(1)
+ 1109 01ae 90E0      		ldi r25,hi8(1)
+ 1110               	.LVL31:
+ 1111 01b0 9093 0000 		sts (GAMEON)+1,r25
+ 1112 01b4 8093 0000 		sts GAMEON,r24
+ 1113 01b8 01E0      		ldi r16,lo8(1)
+ 1114 01ba 10E0      		ldi r17,hi8(1)
+ 1115               	.LVL32:
+ 1116 01bc 31E0      		ldi r19,lo8(1)
+ 1117 01be C32E      		mov r12,r19
+ 1118 01c0 D12C      		mov r13,__zero_reg__
+ 1119               	.LVL33:
+ 1120               	.LSM152:
+ 1121 01c2 23E0      		ldi r18,lo8(3)
+ 1122 01c4 A22E      		mov r10,r18
+ 1123 01c6 B12C      		mov r11,__zero_reg__
+ 1124               	.L65:
+ 1125               	.LSM153:
+ 1126 01c8 0E94 0000 		call clear
+ 1127               	.LVL34:
+ 1128               	.LSM154:
+ 1129 01cc 8091 0000 		lds r24,RIGHT
+ 1130 01d0 9091 0000 		lds r25,(RIGHT)+1
+ 1131 01d4 892B      		or r24,r25
+ 1132 01d6 01F4      		brne .L59
+ 1133 01d8 01E0      		ldi r16,lo8(1)
+ 1134 01da 10E0      		ldi r17,hi8(1)
+ 1135               	.L59:
+ 1136               	.LSM155:
+ 1137 01dc 8091 0000 		lds r24,LEFT
+ 1138 01e0 9091 0000 		lds r25,(LEFT)+1
+ 1139 01e4 892B      		or r24,r25
+ 1140 01e6 01F4      		brne .L60
+ 1141 01e8 91E0      		ldi r25,lo8(1)
+ 1142 01ea C92E      		mov r12,r25
+ 1143 01ec D12C      		mov r13,__zero_reg__
+ 1144               	.L60:
+ 1145               	.LSM156:
+ 1146 01ee 8091 0000 		lds r24,RIGHT
+ 1147 01f2 9091 0000 		lds r25,(RIGHT)+1
+ 1148 01f6 892B      		or r24,r25
+ 1149 01f8 01F0      		breq .L61
+ 1150 01fa 0115      		cp r16,__zero_reg__
+ 1151 01fc 1105      		cpc r17,__zero_reg__
+ 1152 01fe 01F0      		breq .L61
+ 1153               	.LSM157:
+ 1154 0200 8091 0000 		lds r24,Direction
+ 1155 0204 9091 0000 		lds r25,(Direction)+1
+ 1156 0208 0197      		sbiw r24,1
+ 1157 020a 9093 0000 		sts (Direction)+1,r25
+ 1158 020e 8093 0000 		sts Direction,r24
+ 1159               	.LSM158:
+ 1160 0212 8091 0000 		lds r24,Direction
+ 1161 0216 9091 0000 		lds r25,(Direction)+1
+ 1162 021a 97FF      		sbrs r25,7
+ 1163 021c 00C0      		rjmp .L75
+ 1164               	.L62:
+ 1165               	.LSM159:
+ 1166 021e B092 0000 		sts (Direction)+1,r11
+ 1167 0222 A092 0000 		sts Direction,r10
+ 1168               	.L75:
+ 1169 0226 00E0      		ldi r16,lo8(0)
+ 1170 0228 10E0      		ldi r17,hi8(0)
+ 1171               	.L61:
+ 1172               	.LSM160:
+ 1173 022a 8091 0000 		lds r24,LEFT
+ 1174 022e 9091 0000 		lds r25,(LEFT)+1
+ 1175 0232 8C21      		and r24,r12
+ 1176 0234 9D21      		and r25,r13
+ 1177 0236 892B      		or r24,r25
+ 1178 0238 01F0      		breq .L63
+ 1179               	.LSM161:
+ 1180 023a 8091 0000 		lds r24,Direction
+ 1181 023e 9091 0000 		lds r25,(Direction)+1
+ 1182 0242 0196      		adiw r24,1
+ 1183 0244 64E0      		ldi r22,lo8(4)
+ 1184 0246 70E0      		ldi r23,hi8(4)
+ 1185 0248 0E94 0000 		call __divmodhi4
+ 1186 024c 9093 0000 		sts (Direction)+1,r25
+ 1187 0250 8093 0000 		sts Direction,r24
+ 1188 0254 CC24      		clr r12
+ 1189 0256 DD24      		clr r13
+ 1190               	.L63:
+ 1191               	.LSM162:
+ 1192 0258 8091 0000 		lds r24,my_pointer
+ 1193 025c 9091 0000 		lds r25,(my_pointer)+1
+ 1194 0260 0E94 0000 		call draw_sprite
+ 1195 0264 80E0      		ldi r24,lo8(zombie)
+ 1196 0266 E82E      		mov r14,r24
+ 1197 0268 80E0      		ldi r24,hi8(zombie)
+ 1198 026a F82E      		mov r15,r24
+ 1199               	.L64:
+ 1200               	.LBB73:
+ 1201               	.LSM163:
+ 1202 026c F701      		movw r30,r14
+ 1203 026e 8191      		ld r24,Z+
+ 1204 0270 9191      		ld r25,Z+
+ 1205 0272 7F01      		movw r14,r30
+ 1206 0274 0E94 0000 		call draw_sprite
+ 1207               	.LSM164:
+ 1208 0278 F0E0      		ldi r31,lo8(zombie+16)
+ 1209 027a EF16      		cp r14,r31
+ 1210 027c F0E0      		ldi r31,hi8(zombie+16)
+ 1211 027e FF06      		cpc r15,r31
+ 1212 0280 01F4      		brne .L64
+ 1213               	.LBE73:
+ 1214               	.LSM165:
+ 1215 0282 0E94 0000 		call drawScreen
+ 1216               	.LSM166:
+ 1217 0286 0E94 0000 		call refresh
+ 1218 028a 00C0      		rjmp .L65
+ 1219               	.LFE7:
+ 1221               	.global	LEFT
+ 1222               	.global	LEFT
+ 1223               		.section .bss
+ 1226               	LEFT:
+ 1227 0000 0000      		.skip 2,0
+ 1228               	.global	RIGHT
+ 1229               	.global	RIGHT
+ 1232               	RIGHT:
+ 1233 0002 0000      		.skip 2,0
+ 1234               	.global	screen_x
+ 1235               		.data
+ 1238               	screen_x:
+ 1239 0042 5300      		.word	83
+ 1240               	.global	screen_x_Full
+ 1243               	screen_x_Full:
+ 1244 0044 5300      		.word	83
+ 1245               	.global	screen_y
+ 1248               	screen_y:
+ 1249 0046 2F00      		.word	47
+ 1250               	.global	screen_y_Full
+ 1253               	screen_y_Full:
+ 1254 0048 2F00      		.word	47
+ 1255               	.global	charWidth
+ 1258               	charWidth:
+ 1259 004a 0800      		.word	8
+ 1260               	.global	charHeight
+ 1263               	charHeight:
+ 1264 004c 0800      		.word	8
+ 1265               	.global	previousLEFT
+ 1266               	.global	previousLEFT
+ 1267               		.section .bss
+ 1270               	previousLEFT:
+ 1271 0004 0000      		.skip 2,0
+ 1272               	.global	previousRIGHT
+ 1273               	.global	previousRIGHT
+ 1276               	previousRIGHT:
+ 1277 0006 0000      		.skip 2,0
+ 1278               	.global	buttonPressed
+ 1279               	.global	buttonPressed
+ 1282               	buttonPressed:
+ 1283 0008 0000      		.skip 2,0
+ 1284               	.global	previousButton
+ 1285               	.global	previousButton
+ 1288               	previousButton:
+ 1289 000a 0000      		.skip 2,0
+ 1290               	.global	Direction
+ 1291               		.data
+ 1294               	Direction:
+ 1295 004e 0100      		.word	1
+ 1296               	.global	clockCounter
+ 1297               	.global	clockCounter
+ 1298               		.section .bss
+ 1301               	clockCounter:
+ 1302 000c 0000      		.skip 2,0
+ 1303               	.global	GAMEON
+ 1304               	.global	GAMEON
+ 1307               	GAMEON:
+ 1308 000e 0000      		.skip 2,0
+ 1309               	.global	HeroX
+ 1310               		.data
+ 1313               	HeroX:
+ 1314 0050 0100      		.word	1
+ 1315               	.global	HeroY
+ 1316               	.global	HeroY
+ 1317               		.section .bss
+ 1320               	HeroY:
+ 1321 0010 0000      		.skip 2,0
+ 1322               	.global	width
+ 1323               		.data
+ 1326               	width:
+ 1327 0052 03        		.byte	3
+ 1328               	.global	height
+ 1331               	height:
+ 1332 0053 03        		.byte	3
+ 1333               	.global	Lives
+ 1336               	Lives:
+ 1337 0054 0300      		.word	3
+ 1338               	.global	Score
+ 1339               	.global	Score
+ 1340               		.section .bss
+ 1343               	Score:
+ 1344 0012 0000      		.skip 2,0
+ 1345               		.data
+ 1348               	C.1.1752:
+ 1349 0056 E0        		.byte	-32
+ 1350 0057 40        		.byte	64
+ 1351 0058 E0        		.byte	-32
+ 1354               	C.0.1751:
+ 1355 0059 A0        		.byte	-96
+ 1356 005a E0        		.byte	-32
+ 1357 005b A0        		.byte	-96
+ 1358               		.comm my_pointer,2,1
+ 1359               		.comm my_pointer2,2,1
+ 1360               		.comm zombie,16,1
+ 1473               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 solution.c
-C:\cygwin\tmp/ccm235sd.s:2      *ABS*:0000003f __SREG__
-C:\cygwin\tmp/ccm235sd.s:3      *ABS*:0000003e __SP_H__
-C:\cygwin\tmp/ccm235sd.s:4      *ABS*:0000003d __SP_L__
-C:\cygwin\tmp/ccm235sd.s:5      *ABS*:00000034 __CCP__
-C:\cygwin\tmp/ccm235sd.s:6      *ABS*:00000000 __tmp_reg__
-C:\cygwin\tmp/ccm235sd.s:7      *ABS*:00000001 __zero_reg__
-C:\cygwin\tmp/ccm235sd.s:19     .text.buttonCheck:00000000 buttonCheck
-C:\cygwin\tmp/ccm235sd.s:1363   .bss:00000002 RIGHT
-C:\cygwin\tmp/ccm235sd.s:1357   .bss:00000000 LEFT
-C:\cygwin\tmp/ccm235sd.s:117    .text.PinChangeInit:00000000 PinChangeInit
-C:\cygwin\tmp/ccm235sd.s:158    .text.__vector_9:00000000 __vector_9
-C:\cygwin\tmp/ccm235sd.s:207    .text.TimerInit:00000000 TimerInit
-C:\cygwin\tmp/ccm235sd.s:248    .text.heroForward:00000000 heroForward
-C:\cygwin\tmp/ccm235sd.s:1425   .data:0000004e Direction
-C:\cygwin\tmp/ccm235sd.s:1451   .bss:00000010 HeroY
-C:\cygwin\tmp/ccm235sd.s:1444   .data:00000050 HeroX
+C:\cygwin\tmp/ccuZ0eq7.s:2      *ABS*:0000003f __SREG__
+C:\cygwin\tmp/ccuZ0eq7.s:3      *ABS*:0000003e __SP_H__
+C:\cygwin\tmp/ccuZ0eq7.s:4      *ABS*:0000003d __SP_L__
+C:\cygwin\tmp/ccuZ0eq7.s:5      *ABS*:00000034 __CCP__
+C:\cygwin\tmp/ccuZ0eq7.s:6      *ABS*:00000000 __tmp_reg__
+C:\cygwin\tmp/ccuZ0eq7.s:7      *ABS*:00000001 __zero_reg__
+C:\cygwin\tmp/ccuZ0eq7.s:19     .text.buttonCheck:00000000 buttonCheck
+C:\cygwin\tmp/ccuZ0eq7.s:1232   .bss:00000002 RIGHT
+C:\cygwin\tmp/ccuZ0eq7.s:1226   .bss:00000000 LEFT
+C:\cygwin\tmp/ccuZ0eq7.s:117    .text.PinChangeInit:00000000 PinChangeInit
+C:\cygwin\tmp/ccuZ0eq7.s:158    .text.__vector_9:00000000 __vector_9
+C:\cygwin\tmp/ccuZ0eq7.s:207    .text.TimerInit:00000000 TimerInit
+C:\cygwin\tmp/ccuZ0eq7.s:248    .text.heroForward:00000000 heroForward
+C:\cygwin\tmp/ccuZ0eq7.s:1294   .data:0000004e Direction
+C:\cygwin\tmp/ccuZ0eq7.s:1320   .bss:00000010 HeroY
+C:\cygwin\tmp/ccuZ0eq7.s:1313   .data:00000050 HeroX
                             *COM*:00000002 my_pointer
-C:\cygwin\tmp/ccm235sd.s:1379   .data:00000046 screen_y
-C:\cygwin\tmp/ccm235sd.s:1369   .data:00000042 screen_x
-C:\cygwin\tmp/ccm235sd.s:448    .text.__vector_23:00000000 __vector_23
-C:\cygwin\tmp/ccm235sd.s:1432   .bss:0000000c clockCounter
-C:\cygwin\tmp/ccm235sd.s:1438   .bss:0000000e GAMEON
-C:\cygwin\tmp/ccm235sd.s:522    .text.drawScreen:00000000 drawScreen
-C:\cygwin\tmp/ccm235sd.s:1374   .data:00000044 screen_x_Full
-C:\cygwin\tmp/ccm235sd.s:1384   .data:00000048 screen_y_Full
-C:\cygwin\tmp/ccm235sd.s:1467   .data:00000054 Lives
-C:\cygwin\tmp/ccm235sd.s:1474   .bss:00000012 Score
-C:\cygwin\tmp/ccm235sd.s:590    .text.seedWithButtonPress:00000000 seedWithButtonPress
-C:\cygwin\tmp/ccm235sd.s:634    .text.randInRange:00000000 randInRange
-C:\cygwin\tmp/ccm235sd.s:677    .text.CountDown:00000000 CountDown
-C:\cygwin\tmp/ccm235sd.s:765    .text.setupGame:00000000 setupGame
-C:\cygwin\tmp/ccm235sd.s:832    .text.main:00000000 main
-C:\cygwin\tmp/ccm235sd.s:1485   .data:00000059 C.0.1759
-C:\cygwin\tmp/ccm235sd.s:1479   .data:00000056 C.1.1760
-C:\cygwin\tmp/ccm235sd.s:1457   .data:00000052 width
-C:\cygwin\tmp/ccm235sd.s:1462   .data:00000053 height
+C:\cygwin\tmp/ccuZ0eq7.s:1248   .data:00000046 screen_y
+C:\cygwin\tmp/ccuZ0eq7.s:1238   .data:00000042 screen_x
+C:\cygwin\tmp/ccuZ0eq7.s:448    .text.__vector_23:00000000 __vector_23
+C:\cygwin\tmp/ccuZ0eq7.s:1301   .bss:0000000c clockCounter
+C:\cygwin\tmp/ccuZ0eq7.s:1307   .bss:0000000e GAMEON
+C:\cygwin\tmp/ccuZ0eq7.s:522    .text.drawScreen:00000000 drawScreen
+C:\cygwin\tmp/ccuZ0eq7.s:1243   .data:00000044 screen_x_Full
+C:\cygwin\tmp/ccuZ0eq7.s:1253   .data:00000048 screen_y_Full
+C:\cygwin\tmp/ccuZ0eq7.s:1336   .data:00000054 Lives
+C:\cygwin\tmp/ccuZ0eq7.s:1343   .bss:00000012 Score
+C:\cygwin\tmp/ccuZ0eq7.s:590    .text.seedWithButtonPress:00000000 seedWithButtonPress
+C:\cygwin\tmp/ccuZ0eq7.s:634    .text.randInRange:00000000 randInRange
+C:\cygwin\tmp/ccuZ0eq7.s:677    .text.CountDown:00000000 CountDown
+C:\cygwin\tmp/ccuZ0eq7.s:765    .text.setupGame:00000000 setupGame
+C:\cygwin\tmp/ccuZ0eq7.s:832    .text.main:00000000 main
+C:\cygwin\tmp/ccuZ0eq7.s:1354   .data:00000059 C.0.1751
+C:\cygwin\tmp/ccuZ0eq7.s:1348   .data:00000056 C.1.1752
+C:\cygwin\tmp/ccuZ0eq7.s:1326   .data:00000052 width
+C:\cygwin\tmp/ccuZ0eq7.s:1331   .data:00000053 height
                             *COM*:00000010 zombie
-C:\cygwin\tmp/ccm235sd.s:1389   .data:0000004a charWidth
-C:\cygwin\tmp/ccm235sd.s:1394   .data:0000004c charHeight
-C:\cygwin\tmp/ccm235sd.s:1401   .bss:00000004 previousLEFT
-C:\cygwin\tmp/ccm235sd.s:1407   .bss:00000006 previousRIGHT
-C:\cygwin\tmp/ccm235sd.s:1413   .bss:00000008 buttonPressed
-C:\cygwin\tmp/ccm235sd.s:1419   .bss:0000000a previousButton
+C:\cygwin\tmp/ccuZ0eq7.s:1258   .data:0000004a charWidth
+C:\cygwin\tmp/ccuZ0eq7.s:1263   .data:0000004c charHeight
+C:\cygwin\tmp/ccuZ0eq7.s:1270   .bss:00000004 previousLEFT
+C:\cygwin\tmp/ccuZ0eq7.s:1276   .bss:00000006 previousRIGHT
+C:\cygwin\tmp/ccuZ0eq7.s:1282   .bss:00000008 buttonPressed
+C:\cygwin\tmp/ccuZ0eq7.s:1288   .bss:0000000a previousButton
                             *COM*:00000002 my_pointer2
 
 UNDEFINED SYMBOLS
