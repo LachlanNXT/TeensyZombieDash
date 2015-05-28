@@ -18,6 +18,7 @@ volatile int Direction = 1; // {up , down, left, right};
 int zDirection[8] = {1};
 volatile int clockCounter = 0;
 volatile int stepsCounter = 0;
+volatile int scoreCounter = 0;
 volatile int GAMEON = 0;
 volatile int Touched;
 volatile int Over;
@@ -25,6 +26,9 @@ int pitLeft;
 int pitRight;
 int pitTop;
 int pitBottom;
+int activeZombies = 8;
+int numZombies = 8;
+int notOver = 0;
 
 byte width = 3;
 byte height = 3;
@@ -33,10 +37,12 @@ byte height = 3;
 Sprite *my_pointer;
 Sprite *zombie[8];
 Sprite *sword, *swordStatus;
+Sprite *grenade, *grenadeStatus;
 
 int Lives = 3;
 int Score = 0;
 int gotSword = 0;
+int gotGrenade = 0;
 
 byte bitSwordLeft [] = {
 		BYTE( 00100000),
@@ -124,3 +130,6 @@ int isInPit(Sprite *sprite);
 
 void setupSword(void);
 
+void setupGrenade(void);
+
+void winScreen(void);
