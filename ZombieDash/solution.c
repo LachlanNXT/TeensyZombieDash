@@ -64,33 +64,8 @@ int main() {
 	zombie[i] = &zombies[i];
 	init_sprite(zombie[i], middle_x + 3*i, middle_y, width, height, bitZombie);
 	}
-	
-	for (int i = 0; i<2; i++) {
-		zombie[i] = &zombies[i];
-		x = randInRange(1,middle_x-10);
-		y = randInRange(9, screen_y-1);
-		init_sprite(zombie[i], x , y, width, height, bitZombie);
-	}
-	for (int i = 0; i<2; i++) {
-		zombie[i] = &zombies[i];
-		x = randInRange(middle_x+10,screen_x);
-		y = randInRange(9, screen_y-1);
-		init_sprite(zombie[i+2], x , y, width, height, bitZombie);
-	}
-	for (int i = 0; i<2; i++) {
-		zombie[i] = &zombies[i];
-		x = randInRange(1,screen_x);
-		y = randInRange(9, middle_y-10);
-		init_sprite(zombie[i+4], x , y, width, height, bitZombie);
-	}
-	for (int i = 0; i<2; i++) {
-		zombie[i] = &zombies[i];
-		x = randInRange(1,screen_x);
-		y = randInRange(middle_y+10,screen_y);
-		init_sprite(zombie[i+6], x , y, width, height, bitZombie);
-	}
-	*/
 
+	setupZombies();
 	
 	/*
 	Sprite test_sprite; zombie = &test_sprite;
@@ -141,7 +116,7 @@ int main() {
 	int notRIGHT = 1;
 	int notLEFT = 1;
 	GAMEON = 1;
-	while(1){
+	while(GAMEON){
 	/*
 		my_pointer -> y += add;
 		my_pointer2 -> y -= add;
@@ -223,6 +198,7 @@ void setupGame() {
 	seedWithButtonPress();
 	buttonCheck();
 	CountDown();
+	Lives = 3;
 	
 }
 
@@ -386,12 +362,19 @@ ISR(TIMER0_OVF_vect)
 		//PORTB ^= (1<<PINB3);
 		//Reset clockCounter
 		clockCounter = 0;
-		heroForward();	
+		stepsCounter++;
+		if (stepsCounter>9) {
+		stepsCounter = 0;
+		zombiesForward();		
+		}
+		heroForward();
+		collision();
 	}
 }
 
 void heroForward(void) {
-
+int HeroX = 1;
+int HeroY = 0;
 if (Direction == 0) {
 	HeroY = 1;
 	HeroX = 0;
@@ -426,6 +409,57 @@ my_pointer -> y += HeroY;
 
 }
 
+void zombiesForward(void) {
+int range, ZX = 0;
+int ZY = 0;
+	for (int i = 0; i<8; i++) {
+		range = randInRange(1,100);
+		if (range < 6) {
+			zDirection[i] = (zDirection[i]-1);
+			if (zDirection[i] < 0) {
+			zDirection[i] = 3;
+			}
+		}
+		else if (range > 95) {
+			zDirection[i] = (zDirection[i]+1)%4;
+		}
+	
+		if (zDirection[i] == 0) {
+			ZY = 1;
+			ZX = 0;
+			if (zombie[i] -> y > screen_y-1) {
+			ZY = 0;
+			}
+		}
+		if (zDirection[i] == 1) {
+			ZX = 1;
+			ZY = 0;
+			if (zombie[i] -> x > screen_x-1) {
+			ZX = 0;
+			}
+		}
+		if (zDirection[i] == 2) {
+			ZY = -1;
+			ZX = 0;
+			if (zombie[i] -> y < 10) {
+			ZY = 0;
+			}
+		}
+		if (zDirection[i] == 3) {
+			ZX = -1;
+			ZY = 0;
+			if (zombie[i] -> x < 2) {
+			ZX = 0;
+			}
+		}
+
+		zombie[i] -> x += ZX;
+		zombie[i] -> y += ZY;
+
+	}
+	
+}
+
 void drawScreen(void) {
 	draw_line(0,8,screen_x_Full,8);
 	draw_line(0,8,0,screen_y_Full);
@@ -439,29 +473,87 @@ void drawScreen(void) {
 
 }
 
-/*
 void setupZombies(void ) {
+
+	int middle_x = screen_x/2;
+	int middle_y = screen_y/2 + 5;
+	byte x, y;
 	
-	byte bitZombie [] = {
-		BYTE( 11100000),
-		BYTE( 01000000),
-		BYTE( 11100000),
-	};
+	for (int i = 0; i<2; i++) {
+		x = randInRange(1,middle_x-10);
+		y = randInRange(9, screen_y-1);
+		zombie[i] -> x = x;
+		zombie[i] -> y = y;
+	}
+	for (int i = 0; i<2; i++) {
+		x = randInRange(middle_x+10,screen_x);
+		y = randInRange(9, screen_y-1);
+		zombie[i+2] -> x = x;
+		zombie[i+2] -> y = y;
+	}
+	for (int i = 0; i<2; i++) {
+		x = randInRange(1,screen_x);
+		y = randInRange(9, middle_y-10);
+		zombie[i+4] -> x = x;
+		zombie[i+4] -> y = y;
+	}
+	for (int i = 0; i<2; i++) {
+		x = randInRange(1,screen_x);
+		y = randInRange(middle_y+10,screen_y);
+		zombie[i+6] -> x = x;
+		zombie[i+6] -> y = y;
+	}
+	for (int i = 0; i<8; i++) {
+	zDirection[i] = randInRange(0,3);
+	}
+}
+
+void setupHero(void) {
+	int middle_x = screen_x/2;
+	int middle_y = screen_y/2 + 5;
+	my_pointer -> x = middle_x;
+	my_pointer -> y = middle_y;
+}
+
+void collision(void) {
+
+	int middle_x = screen_x/2;
+	int middle_y = screen_y/2;
 	
-	byte x = screen_x/2 - width;
-	byte y = screen_y/2;
+	byte x = my_pointer -> x;
+	byte y = my_pointer -> y;
 	
-	Sprite test_sprite; zombie = &test_sprite;
-	init_sprite(zombie, x + 2*width, y, width, height, bitZombie);
-	draw_sprite(zombie);
+	for (int i = 0; i<8; i++) {
+		byte zx = zombie[i] -> x;
+		byte zy = zombie[i] -> y;
+		
+		if (x > zx - width && x < zx + width && y > zy - height && y < zy + height) {
+		GAMEON = 0;
+			if (Lives>0) {
+				_delay_ms(300);
+				clear();
+				draw_string("Touched A Zombie!",0,middle_y);
+				refresh();
+				_delay_ms(1500);
+				Lives--;
+				setupHero();
+				setupZombies();
+			}
+			else {
+				_delay_ms(300);
+				clear();
+				draw_string("Game OVER!", middle_x-25,middle_y);
+				refresh();
+				_delay_ms(1500);
+				setupGame();
+				setupHero();
+				setupZombies();			
+			}
+		GAMEON = 1;	
+			
+		}
 	
 	
-	
-	refresh();
-	
-	refresh();
-	
-	_delay_ms(3000);
+	} 
 
 }
-*/

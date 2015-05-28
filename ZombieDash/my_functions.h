@@ -15,10 +15,13 @@ volatile int previousRIGHT = 0;
 volatile int buttonPressed = 0;
 volatile int previousButton = 0;
 volatile int Direction = 1; // {up , down, left, right};
+int zDirection[8] = {1};
 volatile int clockCounter = 0;
+volatile int stepsCounter = 0;
 volatile int GAMEON = 0;
-volatile int HeroX = 1;
-volatile int HeroY = 0;
+volatile int Touched;
+volatile int Over;
+
 byte width = 3;
 byte height = 3;
 
@@ -70,4 +73,18 @@ void heroForward(void);
 // Draws the Current Screen
 void drawScreen(void);
 
+// not used anymore
 void setupZombies(void);
+
+// Move zombies forward one unit
+void zombiesForward(void);
+
+// places hero in the middle
+void setupHero(void);
+
+// collision detection
+void collision(void);
+
+void lifeLost(void);
+
+void gameOver(void);
