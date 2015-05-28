@@ -42,6 +42,18 @@ int main() {
 		BYTE( 11100000),
 	};
 	
+	byte bitSword [] = {
+		BYTE( 00100000),
+		BYTE( 11100000),
+		BYTE( 00100000),
+	};
+	
+	byte bitGrenade [] = {
+		BYTE( 01000000),
+		BYTE( 10100000),
+		BYTE( 01000000),	
+	};
+	
 	// screen parameters
 	screen_x -= width;
 	screen_y -= height;
@@ -64,8 +76,16 @@ int main() {
 	zombie[i] = &zombies[i];
 	init_sprite(zombie[i], middle_x + 3*i, middle_y, width, height, bitZombie);
 	}
+	
+	Sprite swords, swordsStatus;
+	sword = &swords;
+	swordStatus = &swordsStatus;
+	init_sprite(sword, -10,-10, width, height, bitSword);
+	init_sprite(swordStatus, -10,-10, width, height, bitSword);
 
+	setupSword();
 	setupZombies();
+	setupPit();
 	
 	/*
 	Sprite test_sprite; zombie = &test_sprite;
@@ -154,11 +174,14 @@ int main() {
 		}
 		
 		draw_sprite(my_pointer);
+		draw_sprite(sword);
 		for (int i = 0; i<8; i++) {
 		draw_sprite(zombie[i]);
 		}
-		drawScreen();	
+		drawPit();
+		drawScreen();
 		refresh();
+		collision();
 	}
 	
 	
@@ -368,51 +391,92 @@ ISR(TIMER0_OVF_vect)
 		zombiesForward();		
 		}
 		heroForward();
-		collision();
 	}
 }
 
 void heroForward(void) {
-int HeroX = 1;
-int HeroY = 0;
-if (Direction == 0) {
-	HeroY = 1;
-	HeroX = 0;
-	if (my_pointer -> y > screen_y-1) {
-	HeroY = 0;
-	}
-}
-if (Direction == 1) {
-	HeroX = 1;
-	HeroY = 0;
-	if (my_pointer -> x > screen_x-1) {
-	HeroX = 0;
-	}
-}
-if (Direction == 2) {
-	HeroY = -1;
-	HeroX = 0;
-	if (my_pointer -> y < 10) {
-	HeroY = 0;
-	}
-}
-if (Direction == 3) {
-	HeroX = -1;
-	HeroY = 0;
-	if (my_pointer -> x < 2) {
-	HeroX = 0;
-	}
-}
 
-my_pointer -> x += HeroX;
-my_pointer -> y += HeroY;
+	int HeroX = 1;
+	int HeroY = 0;
+	int Up,Down,Left,Right;
+	
+	// is hero in pit?
+	if (isInPit(my_pointer)) {
+	Up = pitTop+2;
+	Down = pitBottom - 4;
+	Left = pitLeft+2;
+	Right = pitRight -4;
+	} else {
+	Up = 10;
+	Down = screen_y-1;
+	Left = 2;
+	Right = screen_x-1;
+	}
+
+	// update direction of movement
+	if (Direction == 0) {
+		HeroY = 1;
+		HeroX = 0;
+		if (my_pointer -> y > Down) {
+		HeroY = 0;
+		}
+	}
+	if (Direction == 1) {
+		HeroX = 1;
+		HeroY = 0;
+		if (my_pointer -> x > Right) {
+		HeroX = 0;
+		}
+	}
+	if (Direction == 2) {
+		HeroY = -1;
+		HeroX = 0;
+		if (my_pointer -> y < Up) {
+		HeroY = 0;
+		}
+	}
+	if (Direction == 3) {
+		HeroX = -1;
+		HeroY = 0;
+		if (my_pointer -> x < Left) {
+		HeroX = 0;
+		}
+	}
+	int x = my_pointer -> x;
+	int y = my_pointer -> y;
+	if (LEFT && RIGHT && x > Right ) {
+	
+	my_pointer -> x = Right + 4;	
+	
+	} else if (LEFT && RIGHT && x < Left ) {
+	
+	my_pointer -> x = Left - 4;
+	
+	} else if (LEFT && RIGHT && y < Up ) {
+	
+	my_pointer -> y = Up - 4;
+	
+	} else if (LEFT && RIGHT && y > Down ) {
+	
+	my_pointer -> y = Down + 4;
+	
+	}
+	
+	my_pointer -> x += HeroX;
+	my_pointer -> y += HeroY;
 
 }
 
 void zombiesForward(void) {
-int range, ZX = 0;
-int ZY = 0;
+
+	int range, ZX = 0;
+	int ZY = 0;
+	int Up,Left,Down,Right;
+	
+	//for all zombies
 	for (int i = 0; i<8; i++) {
+		
+		// change of direction with probability 5% each way
 		range = randInRange(1,100);
 		if (range < 6) {
 			zDirection[i] = (zDirection[i]-1);
@@ -423,32 +487,45 @@ int ZY = 0;
 		else if (range > 95) {
 			zDirection[i] = (zDirection[i]+1)%4;
 		}
+		
+		// is zombie in pit?
+		if (isInPit(zombie[i])) {
+			Up = pitTop+2;
+			Down = pitBottom - 4;
+			Left = pitLeft+2;
+			Right = pitRight -4;
+		} else {
+			Up = 10;
+			Down = screen_y-1;
+			Left = 2;
+			Right = screen_x-1;
+		}
 	
 		if (zDirection[i] == 0) {
 			ZY = 1;
 			ZX = 0;
-			if (zombie[i] -> y > screen_y-1) {
+			if ((zombie[i] -> y > Down)) {
 			ZY = 0;
 			}
 		}
 		if (zDirection[i] == 1) {
 			ZX = 1;
 			ZY = 0;
-			if (zombie[i] -> x > screen_x-1) {
+			if ((zombie[i] -> x > Right)) {
 			ZX = 0;
 			}
 		}
 		if (zDirection[i] == 2) {
 			ZY = -1;
 			ZX = 0;
-			if (zombie[i] -> y < 10) {
+			if ((zombie[i] -> y < Up)) {
 			ZY = 0;
 			}
 		}
 		if (zDirection[i] == 3) {
 			ZX = -1;
 			ZY = 0;
-			if (zombie[i] -> x < 2) {
+			if ((zombie[i] -> x < Left)) {
 			ZX = 0;
 			}
 		}
@@ -469,7 +546,8 @@ void drawScreen(void) {
 	draw_character((0x30 + Lives),11,0);
 	draw_string("S: ", 21,0);
 	draw_character((0x30 + Score),31,0);
-	draw_character((0x30 + Direction),70,0);
+	draw_character((0x30 + Direction),78,0);
+	draw_character((0x30 + isInPit(my_pointer)),60,0);
 
 }
 
@@ -547,7 +625,8 @@ void collision(void) {
 				_delay_ms(1500);
 				setupGame();
 				setupHero();
-				setupZombies();			
+				setupZombies();	
+				setupPit();
 			}
 		GAMEON = 1;	
 			
@@ -556,4 +635,44 @@ void collision(void) {
 	
 	} 
 
+}
+
+void setupPit(void) {
+
+	int pitwidth = randInRange(6,12);
+	int pitheight = randInRange(6,12);
+	pitLeft = randInRange(20,screen_x_Full-20);
+	pitRight = pitLeft + pitwidth;
+	pitTop = randInRange(9+20,screen_y_Full-20);
+	pitBottom = pitTop + pitheight;
+	drawPit();
+
+}
+
+void drawPit(void) {
+
+	draw_line(pitLeft,pitTop,pitRight,pitTop);
+	draw_line(pitLeft,pitBottom,pitRight,pitBottom);
+	draw_line(pitLeft,pitTop,pitLeft,pitBottom);
+	draw_line(pitRight,pitTop,pitRight,pitBottom);
+	
+}
+
+int isInPit(Sprite *sprite) {
+	int x = sprite -> x;
+	int y = sprite -> y;
+	if ((x > pitLeft && x < pitRight - width +1 && y > pitTop && y < pitBottom - height +1)) {
+	return 1;
+	}
+	else {
+	return 0;
+	}
+
+}
+
+void setupSword(void) {
+	int x = randInRange(2,screen_x);
+	int y = randInRange(9,screen_y);
+	sword -> x = x;
+	sword -> y = y;
 }

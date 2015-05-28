@@ -21,6 +21,10 @@ volatile int stepsCounter = 0;
 volatile int GAMEON = 0;
 volatile int Touched;
 volatile int Over;
+int pitLeft;
+int pitRight;
+int pitTop;
+int pitBottom;
 
 byte width = 3;
 byte height = 3;
@@ -28,6 +32,7 @@ byte height = 3;
 Sprite *my_pointer;
 Sprite *my_pointer2;
 Sprite *zombie[8];
+Sprite *sword, *swordStatus;
 //Sprite zombies[8];
 
 int Lives = 3;
@@ -85,6 +90,11 @@ void setupHero(void);
 // collision detection
 void collision(void);
 
-void lifeLost(void);
+void setupPit(void);
 
-void gameOver(void);
+void drawPit(void);
+
+int isInPit(Sprite *sprite);
+
+void setupSword(void);
+
