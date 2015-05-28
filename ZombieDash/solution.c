@@ -42,12 +42,6 @@ int main() {
 		BYTE( 11100000),
 	};
 	
-	byte bitGrenade [] = {
-		BYTE( 01000000),
-		BYTE( 10100000),
-		BYTE( 01000000),	
-	};
-	
 	// screen parameters
 	screen_x -= width;
 	screen_y -= height;
@@ -82,7 +76,13 @@ int main() {
 	grenadeStatus = &grenadesStatus;
 	init_sprite(grenade, -10,-10, width, height, bitGrenade);
 	init_sprite(grenadeStatus, -10,-10, width, height, bitGrenade);
-
+	
+	Sprite explosions;
+	explosion = &explosions;
+	init_sprite(explosion, -10, -10, 16, 16, bitExploded);
+	explosion -> is_visible = 1;
+	draw_sprite(explosion);
+	
 	setupGrenade();
 	setupSword();
 	setupZombies();
@@ -174,9 +174,53 @@ int main() {
 			
 		}
 		
+		if (LEFT & RIGHT & gotGrenade) {
+			if (gotGrenade) {
+			grenade -> x = my_pointer -> x;
+			grenade -> y = my_pointer -> y;
+			grenade -> is_visible = 1;
+			grenadeCounter = 0;
+			grenadeDropped = 1;
+			}
+		}
+		
+		if (grenadeExploded) {
+			
+			int gx = grenade -> x;
+			int gy = grenade -> y;
+				
+			for (int i = 0; i<numZombies; i++) {
+							
+				int top = gy - 10;
+				int bottom = gy +13;
+				int left = gx - 10;
+				int right = gx + 13;
+				
+				byte zx = zombie[i] -> x;
+				byte zy = zombie[i] -> y;
+				
+				if (zx > left && zx < right && zy > top && zy < bottom && (zombie[i] -> is_visible == 1) ) {
+					zombie[i] -> is_visible = 0;
+					Score++;
+					activeZombies--;
+				}
+			}
+			
+			explosion -> x = gx - 3;
+			explosion -> y = gy - 3;
+			explosion -> is_visible = 1;
+			//draw_sprite(explosion);
+			explosionCounter = 0;
+			gotGrenade = 0;
+			grenadeExploded = 0;
+			setupGrenade();
+			
+		}
+		
 		draw_sprite(my_pointer);
-		draw_sprite(sword);
 		draw_sprite(grenade);
+		draw_sprite(sword);
+		//draw_sprite(grenade);
 		if (gotSword) {
 		swordStatus -> x = 45;
 		swordStatus -> y = 0;
@@ -187,6 +231,16 @@ int main() {
 		swordStatus -> y = -10;
 		draw_sprite(swordStatus);
 		}
+		if (gotGrenade) {
+		grenadeStatus -> x = 45;
+		grenadeStatus -> y = 5;
+		grenadeStatus -> is_visible = 1;
+		draw_sprite(grenadeStatus);
+		}
+		else {
+		grenadeStatus -> is_visible = 0;		
+		}
+		draw_sprite(explosion);
 		for (int i = 0; i<numZombies; i++) {
 		draw_sprite(zombie[i]);
 		}
@@ -235,6 +289,13 @@ void setupGame() {
 	
 	seedWithButtonPress();
 	buttonCheck();
+	
+	chooseDifficulty();	
+	
+	if (difficulty == 1) {
+	//numZombies = 16;
+	zombieSteps = 4;
+	}
 	CountDown();
 	Lives = 3;
 	Score = 0;
@@ -403,14 +464,27 @@ ISR(TIMER0_OVF_vect)
 		//Reset clockCounter
 		clockCounter = 0;
 		stepsCounter++;
-		if (stepsCounter>9) {
+		if (stepsCounter>zombieSteps) {
 		scoreCounter++;
+		explosionCounter++;
+		if (grenadeDropped) {
+		grenadeCounter++;
+		}
 		stepsCounter = 0;
 		zombiesForward();		
 		}
 		if (scoreCounter>5) {
 		scoreCounter = 0;
 		Score++;
+		}
+		if ((grenadeCounter>3) & gotGrenade) {
+		grenadeCounter = 0;
+		grenadeDropped = 0;
+		grenadeExploded = 1;
+		}
+		if (explosionCounter>3) {
+		explosion -> is_visible = 0;
+		explosionCounter = 0;		
 		}
 		heroForward();
 	}
@@ -643,6 +717,7 @@ void setupHero(void) {
 	int middle_y = screen_y/2 + 5;
 	my_pointer -> x = middle_x;
 	my_pointer -> y = middle_y;
+	my_pointer -> is_visible = 1;
 }
 
 void collision(void) {
@@ -655,6 +730,9 @@ void collision(void) {
 	
 	int sx = sword -> x;
 	int sy = sword -> y;
+	
+	int gx = grenade -> x;
+	int gy = grenade -> y;
 	
 	// checking zombie collisions
 	for (int i = 0; i<numZombies; i++) {
@@ -684,6 +762,8 @@ void collision(void) {
 				gotSword = 0;
 				setupGrenade();
 				gotGrenade = 0;
+				grenadeDropped = 0;
+				grenadeExploded = 0;
 			}
 			else {
 				_delay_ms(300);
@@ -699,13 +779,20 @@ void collision(void) {
 				gotSword = 0;
 				setupGrenade();
 				gotGrenade = 0;
+				grenadeDropped = 0;
+				grenadeExploded = 0;
 			}
 		GAMEON = 1;	
 		}
 	} 
 	
+	// sword collision and collection
 	if (x > sx - width && x < sx + width && y > sy - height && y < sy + height) {
 	gotSword = 1;
+	}
+	if (x > gx - width && x < gx + width && y > gy - height && y < gy + height && gotGrenade == 0) {
+	gotGrenade = 1;
+	grenade -> is_visible = 0;
 	}
 	
 }
@@ -748,6 +835,7 @@ void setupSword(void) {
 	int y = randInRange(9,screen_y);
 	sword -> x = x;
 	sword -> y = y;
+	sword -> is_visible = 1;
 }
 
 void setupGrenade(void) {
@@ -755,6 +843,7 @@ void setupGrenade(void) {
 	int y = randInRange(9,screen_y);
 	grenade -> x = x;
 	grenade -> y = y;
+	grenade -> is_visible = 1;
 }
 
 void winScreen(void) {
@@ -774,5 +863,47 @@ void winScreen(void) {
 	gotSword = 0;
 	setupGrenade();
 	gotGrenade = 0;
+	grenadeDropped = 0;
+	grenadeExploded = 0;
 
+}
+
+void chooseDifficulty(void) {
+	
+	int notRIGHT = 1;
+	int notLEFT = 1;
+	int middle_x = screen_x/2;
+	int middle_y = screen_y/2;
+	difficulty = 0;
+	clear();
+	draw_string("Standard", middle_x - 4*5, middle_y);
+	refresh();
+	//_delay_ms(3000);
+	buttonCheck();
+	
+	while ( (LEFT == 0) && (notLEFT) ) {
+	
+		clear();
+		if (RIGHT == 0) {
+			notRIGHT = 1;
+		}
+		if (LEFT == 0) {
+			notLEFT = 1;
+		}
+		if (RIGHT && notRIGHT) {
+			notRIGHT = 0;
+			difficulty = (difficulty+1)%2;
+		}
+		if (difficulty == 0) {
+		draw_string("Difficulty:", middle_x - 5*5, middle_y-9);
+		draw_string("Standard", middle_x - 4*5, middle_y);
+		}
+		else {
+		draw_string("Difficulty:", middle_x - 5*5, middle_y-9);
+		draw_string("Advanced", middle_x - 4*5, middle_y);
+		}
+		refresh();
+	
+	}
+	//difficulty = toggle;
 }
