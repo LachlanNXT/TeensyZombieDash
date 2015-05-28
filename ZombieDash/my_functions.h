@@ -29,14 +29,40 @@ int pitBottom;
 byte width = 3;
 byte height = 3;
 
+// Sprite pointers
 Sprite *my_pointer;
-Sprite *my_pointer2;
 Sprite *zombie[8];
 Sprite *sword, *swordStatus;
-//Sprite zombies[8];
 
 int Lives = 3;
 int Score = 0;
+int gotSword = 0;
+
+byte bitSwordLeft [] = {
+		BYTE( 00100000),
+		BYTE( 11100000),
+		BYTE( 00100000),
+	};
+	
+	byte bitSwordRight [] = {
+		BYTE( 10000000),
+		BYTE( 11100000),
+		BYTE( 10000000),
+	};
+	
+	byte bitSwordUp [] = {
+		BYTE( 01000000),
+		BYTE( 01000000),
+		BYTE( 11100000),
+	};
+	
+	byte bitSwordDown [] = {
+		BYTE( 11100000),
+		BYTE( 01000000),
+		BYTE( 01000000),
+	};
+
+
 
 // Function Prototypes
 

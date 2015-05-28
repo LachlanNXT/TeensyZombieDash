@@ -42,12 +42,6 @@ int main() {
 		BYTE( 11100000),
 	};
 	
-	byte bitSword [] = {
-		BYTE( 00100000),
-		BYTE( 11100000),
-		BYTE( 00100000),
-	};
-	
 	byte bitGrenade [] = {
 		BYTE( 01000000),
 		BYTE( 10100000),
@@ -80,8 +74,8 @@ int main() {
 	Sprite swords, swordsStatus;
 	sword = &swords;
 	swordStatus = &swordsStatus;
-	init_sprite(sword, -10,-10, width, height, bitSword);
-	init_sprite(swordStatus, -10,-10, width, height, bitSword);
+	init_sprite(sword, -10,-10, width, height, bitSwordLeft);
+	init_sprite(swordStatus, -10,-10, width, height, bitSwordUp);
 
 	setupSword();
 	setupZombies();
@@ -175,6 +169,11 @@ int main() {
 		
 		draw_sprite(my_pointer);
 		draw_sprite(sword);
+		if (gotSword) {
+		swordStatus -> x = 40;
+		swordStatus -> y = 0;
+		draw_sprite(swordStatus);
+		}
 		for (int i = 0; i<8; i++) {
 		draw_sprite(zombie[i]);
 		}
@@ -415,6 +414,11 @@ void heroForward(void) {
 
 	// update direction of movement
 	if (Direction == 0) {
+		sword -> bitmap = bitSwordDown;
+		if (gotSword) {
+		sword -> x = my_pointer -> x;
+		sword -> y = my_pointer -> y + 4;
+		}
 		HeroY = 1;
 		HeroX = 0;
 		if (my_pointer -> y > Down) {
@@ -422,6 +426,11 @@ void heroForward(void) {
 		}
 	}
 	if (Direction == 1) {
+		sword -> bitmap = bitSwordRight;
+		if (gotSword) {
+		sword -> x = my_pointer -> x + 4;
+		sword -> y = my_pointer -> y;
+		}
 		HeroX = 1;
 		HeroY = 0;
 		if (my_pointer -> x > Right) {
@@ -429,6 +438,11 @@ void heroForward(void) {
 		}
 	}
 	if (Direction == 2) {
+		sword -> bitmap = bitSwordUp;
+		if (gotSword) {
+		sword -> x = my_pointer -> x;
+		sword -> y = my_pointer -> y - 4;
+		}
 		HeroY = -1;
 		HeroX = 0;
 		if (my_pointer -> y < Up) {
@@ -436,32 +450,40 @@ void heroForward(void) {
 		}
 	}
 	if (Direction == 3) {
+		sword -> bitmap = bitSwordLeft;
+		if (gotSword) {
+		sword -> x = my_pointer -> x - 4;
+		sword -> y = my_pointer -> y;
+		}
 		HeroX = -1;
 		HeroY = 0;
 		if (my_pointer -> x < Left) {
 		HeroX = 0;
 		}
 	}
-	int x = my_pointer -> x;
-	int y = my_pointer -> y;
-	if (LEFT && RIGHT && x > Right ) {
 	
-	my_pointer -> x = Right + 4;	
-	
-	} else if (LEFT && RIGHT && x < Left ) {
-	
-	my_pointer -> x = Left - 4;
-	
-	} else if (LEFT && RIGHT && y < Up ) {
-	
-	my_pointer -> y = Up - 4;
-	
-	} else if (LEFT && RIGHT && y > Down ) {
-	
-	my_pointer -> y = Down + 4;
-	
-	}
-	
+	if (isInPit(my_pointer)) {
+		int x = my_pointer -> x;
+		int y = my_pointer -> y;
+		if (LEFT && RIGHT && x > Right ) {
+		
+		my_pointer -> x = Right + 4;	
+		
+		} else if (LEFT && RIGHT && x < Left ) {
+		
+		my_pointer -> x = Left - 4;
+		
+		} else if (LEFT && RIGHT && y < Up ) {
+		
+		my_pointer -> y = Up - 4;
+		
+		} else if (LEFT && RIGHT && y > Down ) {
+		
+		my_pointer -> y = Down + 4;
+		
+		}
+	}	
+		
 	my_pointer -> x += HeroX;
 	my_pointer -> y += HeroY;
 
@@ -583,6 +605,7 @@ void setupZombies(void ) {
 	}
 	for (int i = 0; i<8; i++) {
 	zDirection[i] = randInRange(0,3);
+	zombie[i] -> is_visible = 1;
 	}
 }
 
@@ -601,11 +624,20 @@ void collision(void) {
 	byte x = my_pointer -> x;
 	byte y = my_pointer -> y;
 	
+	int sx = sword -> x;
+	int sy = sword -> y;
+	
+	// checking zombie collisions
 	for (int i = 0; i<8; i++) {
 		byte zx = zombie[i] -> x;
 		byte zy = zombie[i] -> y;
 		
-		if (x > zx - width && x < zx + width && y > zy - height && y < zy + height) {
+		if (sx > zx - width && sx < zx + width && sy > zy - height && sy < zy + height && gotSword && (zombie[i] -> is_visible == 1) ) {
+			zombie[i] -> is_visible = 0;
+			Score++;
+		}
+		
+		if (x > zx - width && x < zx + width && y > zy - height && y < zy + height && (zombie[i] -> is_visible == 1) ) {
 		GAMEON = 0;
 			if (Lives>0) {
 				_delay_ms(300);
@@ -629,12 +661,13 @@ void collision(void) {
 				setupPit();
 			}
 		GAMEON = 1;	
-			
 		}
-	
-	
 	} 
-
+	
+	if (x > sx - width && x < sx + width && y > sy - height && y < sy + height) {
+	gotSword = 1;
+	}
+	
 }
 
 void setupPit(void) {
