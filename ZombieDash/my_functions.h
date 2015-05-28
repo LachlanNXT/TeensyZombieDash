@@ -19,6 +19,8 @@ int zDirection[8] = {1};
 volatile int clockCounter = 0;
 volatile int stepsCounter = 0;
 volatile int scoreCounter = 0;
+volatile int grenadeCounter = 0;
+volatile int explosionCounter = 0;
 volatile int GAMEON = 0;
 volatile int Touched;
 volatile int Over;
@@ -27,8 +29,12 @@ int pitRight;
 int pitTop;
 int pitBottom;
 int activeZombies = 8;
+int zombieSteps = 9;
 int numZombies = 8;
 int notOver = 0;
+volatile int grenadeDropped = 0;
+volatile int grenadeExploded = 0;
+int difficulty = 0;
 
 byte width = 3;
 byte height = 3;
@@ -38,6 +44,7 @@ Sprite *my_pointer;
 Sprite *zombie[8];
 Sprite *sword, *swordStatus;
 Sprite *grenade, *grenadeStatus;
+Sprite *explosion;
 
 int Lives = 3;
 int Score = 0;
@@ -67,8 +74,31 @@ byte bitSwordLeft [] = {
 		BYTE( 01000000),
 		BYTE( 01000000),
 	};
-
-
+	
+	byte bitGrenade [] = {
+		BYTE( 01000000),
+		BYTE( 10100000),
+		BYTE( 01000000),	
+	};
+	
+	byte bitExploded [] = {
+		UINT( 11000001, 10000011 ),
+		UINT( 01100001, 10000110 ),
+		UINT( 00110001, 10001100 ),
+		UINT( 00110001, 10001100 ),
+		UINT( 00011001, 10011000 ),
+		UINT( 00001101, 10110000 ),
+		UINT( 00000111, 11100000 ),
+		UINT( 11111111, 11111111 ),
+		UINT( 11111111, 11111111 ),
+		UINT( 00000111, 11100000 ),
+		UINT( 00001101, 10110000 ),
+		UINT( 00011001, 10011000 ),
+		UINT( 00110001, 10001100 ),
+		UINT( 00110001, 10001100 ),
+		UINT( 01100001, 10000110 ),
+		UINT( 11000001, 10000011 ),
+	};
 
 // Function Prototypes
 
@@ -133,3 +163,5 @@ void setupSword(void);
 void setupGrenade(void);
 
 void winScreen(void);
+
+void chooseDifficulty(void);
